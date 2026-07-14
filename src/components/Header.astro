@@ -1,0 +1,75 @@
+---
+import type { Locale } from "../i18n/config";
+import { locales, localePath } from "../i18n/config";
+import { t } from "../i18n/translations";
+import "../styles/global.css";
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const strings = t(locale);
+
+const navItems = [
+	{ key: "about", href: "#about" },
+	{ key: "amenities", href: "#amenities" },
+	{ key: "gallery", href: "#gallery" },
+	{ key: "reviews", href: "#reviews" },
+	{ key: "nearby", href: "#nearby" },
+	{ key: "contact", href: "#contact" },
+] as const;
+---
+
+<header class="sticky top-0 z-40 bg-background/90 backdrop-blur border-b border-border">
+	<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+		<a href={localePath(locale)} class="font-bold text-lg tracking-tight">
+			<span class="text-primary">Karting</span> Apartment
+		</a>
+
+		<nav class="hidden md:flex items-center gap-6">
+			{navItems.map((item) => (
+				<a
+					href={item.href}
+					class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+				>
+					{strings.nav[item.key]}
+				</a>
+			))}
+		</nav>
+
+		<div class="flex items-center gap-3">
+			<div class="flex items-center gap-1 text-xs font-medium">
+				{locales.map((l) => (
+					<a
+						href={localePath(l)}
+						class:list={[
+							"px-2 py-1 rounded uppercase transition-colors",
+							l === locale
+								? "bg-primary text-primary-foreground"
+								: "text-muted-foreground hover:text-foreground",
+						]}
+						data-locale-switch={l}
+					>
+						{l}
+					</a>
+				))}
+			</div>
+			<a
+				href="#contact"
+				class="hidden sm:inline-flex px-4 py-2 rounded-full bg-accent text-white text-sm font-semibold hover:opacity-90 transition-opacity"
+			>
+				{strings.nav.book}
+			</a>
+		</div>
+	</div>
+</header>
+
+<script>
+	document.querySelectorAll("[data-locale-switch]").forEach((el) => {
+		el.addEventListener("click", () => {
+			const locale = el.getAttribute("data-locale-switch");
+			if (locale) localStorage.setItem("locale", locale);
+		});
+	});
+</script>

@@ -1,0 +1,216 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { HomePage } from "../../components/HomePage";
+import { Gallery } from "../../components/Gallery";
+import { NearbyCarousel } from "../../components/NearbyCarousel";
+import { locales, type Locale } from "../../i18n/config";
+import { t } from "../../i18n/translations";
+import { apartment } from "../../data/apartment";
+
+export function getStaticPaths() {
+	return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const locale = lang as Locale;
+const strings = t(locale);
+
+const amenityGroups = [
+	{
+		key: "essentials" as const,
+		items: ["wifi", "parking", "ac", "kitchen", "washer"] as const,
+	},
+	{
+		key: "comfort" as const,
+		items: ["balcony", "nonSmoking", "allergyFree"] as const,
+	},
+	{
+		key: "services" as const,
+		items: ["shuttle", "bikes", "restaurant"] as const,
+	},
+	{
+		key: "activities" as const,
+		items: ["cycling"] as const,
+	},
+];
+---
+
+<SiteLayout locale={locale}>
+	<HomePage client:load locale={locale} hero={strings.hero} />
+
+	<!-- About -->
+	<section id="about" class="py-20 bg-cream/50">
+		<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid lg:grid-cols-2 gap-12 items-center">
+				<div>
+					<h2 class="text-3xl sm:text-4xl font-bold mb-6">{strings.about.title}</h2>
+					<p class="text-muted-foreground text-lg mb-4 leading-relaxed">{strings.about.p1}</p>
+					<p class="text-muted-foreground text-lg leading-relaxed">{strings.about.p2}</p>
+				</div>
+				<div class="grid grid-cols-2 gap-4">
+					{Object.values(strings.about.stats).map((value) => (
+						<div class="rounded-2xl bg-card border border-border p-6 text-center shadow-sm">
+							<p class="text-2xl font-bold text-primary">{value}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Amenities -->
+	<section id="amenities" class="py-20">
+		<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">{strings.amenities.title}</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+				{amenityGroups.map((group) => (
+					<div class="rounded-2xl bg-card border border-border p-6 shadow-sm">
+						<h3 class="font-semibold text-primary mb-4">{strings.amenities.groups[group.key]}</h3>
+						<ul class="space-y-2">
+							{group.items.map((item) => (
+								<li class="flex items-center gap-2 text-sm text-muted-foreground">
+									<span class="size-1.5 rounded-full bg-accent shrink-0" />
+									{strings.amenities.items[item]}
+								</li>
+							))}
+						</ul>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Gallery -->
+	<section id="gallery" class="relative py-20 overflow-hidden">
+		<div class="absolute inset-0 bg-gradient-to-b from-cream/40 via-background to-background pointer-events-none" aria-hidden />
+		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 rounded-full bg-gradient-to-r from-primary via-white to-accent opacity-80" aria-hidden />
+		<div class="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl sm:text-4xl font-bold mb-4">{strings.gallery.title}</h2>
+				<p class="text-muted-foreground text-lg max-w-2xl mx-auto">{strings.gallery.subtitle}</p>
+			</div>
+			<Gallery client:load locale={locale} title="Karting Apartment" />
+		</div>
+	</section>
+
+	<!-- Reviews -->
+	<section id="reviews" class="py-20 bg-cream/50">
+		<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<div class="inline-flex items-baseline gap-2 mb-2">
+					<span class="text-5xl font-bold text-accent">{strings.reviews.score}</span>
+					<span class="text-xl font-semibold">{strings.reviews.label}</span>
+				</div>
+				<p class="text-muted-foreground">{strings.reviews.count}</p>
+			</div>
+			<div class="grid md:grid-cols-3 gap-6">
+				{strings.reviews.items.map((review) => (
+					<blockquote class="rounded-2xl bg-card border border-border p-6 shadow-sm">
+						<p class="text-foreground mb-4 leading-relaxed">"{review.text}"</p>
+						<footer class="text-sm text-muted-foreground">— {review.author}</footer>
+					</blockquote>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Explore -->
+	<section id="nearby" class="py-20 bg-cream/50">
+		<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl sm:text-4xl font-bold mb-4">{strings.nearby.title}</h2>
+				<p class="text-muted-foreground text-lg max-w-2xl mx-auto">{strings.nearby.subtitle}</p>
+			</div>
+			<NearbyCarousel client:load locale={locale} />
+		</div>
+	</section>
+
+	<!-- Contact -->
+	<section id="contact" class="py-20">
+		<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid lg:grid-cols-2 gap-12">
+				<div>
+					<h2 class="text-3xl sm:text-4xl font-bold mb-4">{strings.contact.title}</h2>
+					<p class="text-muted-foreground text-lg mb-4">{strings.contact.subtitle}</p>
+					<p class="text-sm font-medium text-accent mb-6">{strings.contact.directBenefit}</p>
+					<p class="text-sm text-muted-foreground mb-1">{strings.contact.address}</p>
+					<p class="text-sm text-muted-foreground">{strings.contact.checkIn}</p>
+
+					<div class="flex flex-wrap gap-3 mt-8">
+						<a
+							href={apartment.links.booking}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex px-5 py-2.5 rounded-full border border-border text-sm font-medium hover:bg-secondary transition-colors"
+						>
+							{strings.contact.platforms.booking}
+						</a>
+						<a
+							href={apartment.links.airbnb}
+							class="inline-flex px-5 py-2.5 rounded-full border border-border text-sm font-medium hover:bg-secondary transition-colors"
+						>
+							{strings.contact.platforms.airbnb}
+						</a>
+					</div>
+				</div>
+
+				<form
+					class="rounded-2xl bg-card border border-border p-8 shadow-sm space-y-4"
+					action={`mailto:${apartment.links.email}`}
+					method="POST"
+					enctype="text/plain"
+				>
+					<div>
+						<label class="block text-sm font-medium mb-1.5" for="name">{strings.contact.form.name}</label>
+						<input
+							type="text"
+							id="name"
+							name="name"
+							required
+							class="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+						/>
+					</div>
+					<div>
+						<label class="block text-sm font-medium mb-1.5" for="email">{strings.contact.form.email}</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							required
+							class="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+						/>
+					</div>
+					<div>
+						<label class="block text-sm font-medium mb-1.5" for="dates">{strings.contact.form.dates}</label>
+						<input
+							type="text"
+							id="dates"
+							name="dates"
+							class="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+						/>
+					</div>
+					<div>
+						<label class="block text-sm font-medium mb-1.5" for="message">{strings.contact.form.message}</label>
+						<textarea
+							id="message"
+							name="message"
+							rows="3"
+							class="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+						></textarea>
+					</div>
+					<button
+						type="submit"
+						class="w-full px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity"
+					>
+						{strings.contact.form.submit}
+					</button>
+					<p class="text-xs text-muted-foreground text-center">{strings.contact.form.note}</p>
+				</form>
+			</div>
+		</div>
+	</section>
+</SiteLayout>
+
+<script define:vars={{ locale }}>
+	localStorage.setItem("locale", locale);
+</script>

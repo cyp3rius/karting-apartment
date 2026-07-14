@@ -17,6 +17,33 @@ Consult these guides before working on related tasks:
 - [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
 - [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
 - [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+
+## Project context
+
+See [`.ai/spec/`](./.ai/spec/README.md) for product, design, and i18n specs.
+
+## Hero map (frozen)
+
+Do **not** change the geographic map SVG unless the user explicitly asks in a prompt.
+
+Off limits by default:
+
+- `src/components/HeroMap.tsx` — map layers inside `<svg>` (land, neighbors, borders, coast, regions, lakes, sea, viewBox)
+- `src/data/northern-italy-map.ts`
+- `scripts/generate-northern-italy-map.mjs`
+
+Allowed without an explicit map request: hero layout, CSS overlays/backgrounds **outside** the `<svg>`, carousel, and other hero UI around the map.
+
+## Hero map (frozen)
+
+Do **not** change the geographic map SVG unless the user explicitly asks in a prompt.
+
+Off limits by default:
+
+- `src/components/HeroMap.tsx` — map layers inside `<svg>` (land, neighbors, borders, coast, regions, lakes, sea, viewBox)
+- `src/data/northern-italy-map.ts`
+- `scripts/generate-northern-italy-map.mjs`
+
+Allowed without an explicit map request: hero layout, CSS overlays/backgrounds **outside** the `<svg>`, carousel, and other hero UI around the map.
