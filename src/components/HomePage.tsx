@@ -12,7 +12,7 @@ interface HomePageProps {
 	locale: Locale;
 	hero: {
 		eyebrow: string;
-		title: string;
+		titles: readonly string[];
 		subtitle: string;
 		ctaPrimary: string;
 		ctaSecondary: string;

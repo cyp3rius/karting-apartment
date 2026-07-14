@@ -141,7 +141,7 @@ function Lightbox({
 						key={galleryImages[index]}
 						src={gallerySrc(galleryImages[index])}
 						alt={`${title} ${index + 1}`}
-						className="gallery-lightbox-image max-h-full max-w-full object-contain rounded-lg shadow-2xl"
+						className="gallery-lightbox-image max-h-full max-w-full object-contain rounded-lg shadow-lg"
 						draggable={false}
 					/>
 				</div>
@@ -205,7 +205,7 @@ export function Gallery({ locale, title }: GalleryProps) {
 	return (
 		<>
 			{/* Airbnb-style hero mosaic */}
-			<div className="gallery-mosaic rounded-2xl overflow-hidden shadow-lg border border-border/60">
+			<div className="gallery-mosaic rounded-2xl overflow-hidden shadow-md border border-border/60">
 				<div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-1.5 md:gap-2 h-[220px] sm:h-[280px] md:h-[440px]">
 					<GalleryTile
 						id={preview[0]}
@@ -234,7 +234,7 @@ export function Gallery({ locale, title }: GalleryProps) {
 						overlay={
 							remaining > 0 ? (
 								<div className="absolute inset-0 flex items-center justify-center bg-black/45 backdrop-blur-[2px] transition-colors group-hover:bg-black/55">
-									<span className="inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-foreground shadow-lg">
+									<span className="inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-foreground shadow-sm">
 										<svg className="size-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
 											<rect x="3" y="3" width="7" height="7" rx="1" />
 											<rect x="14" y="3" width="7" height="7" rx="1" />
@@ -261,7 +261,7 @@ export function Gallery({ locale, title }: GalleryProps) {
 						className="md:hidden rounded-none rounded-br-2xl"
 						overlay={
 							<div className="absolute inset-0 flex items-center justify-center bg-black/45 backdrop-blur-[2px]">
-								<span className="rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-foreground shadow-lg">
+								<span className="rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-foreground shadow-sm">
 									{format(strings.viewAll, { count: galleryImages.length })}
 								</span>
 							</div>
@@ -275,7 +275,7 @@ export function Gallery({ locale, title }: GalleryProps) {
 				<button
 					type="button"
 					onClick={() => open(0)}
-					className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold shadow-sm transition-all hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+					className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold shadow-sm transition-all hover:border-primary/30 hover:shadow-sm hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
 				>
 					<svg className="size-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
 						<rect x="3" y="3" width="18" height="18" rx="2" />

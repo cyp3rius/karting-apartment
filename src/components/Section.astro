@@ -1,0 +1,31 @@
+---
+interface Props {
+	id: string;
+	tone?: "white" | "muted";
+	divider?: boolean;
+	class?: string;
+}
+
+const { id, tone = "white", divider = true, class: className } = Astro.props;
+---
+
+<section
+	id={id}
+	class:list={[
+		"page-section",
+		`page-section--${tone}`,
+		divider && "page-section--divided",
+		className,
+	]}
+>
+	{
+		divider && (
+			<div class="section-divider" aria-hidden="true">
+				<span class="section-divider-band section-divider-band--green" />
+				<span class="section-divider-band section-divider-band--white" />
+				<span class="section-divider-band section-divider-band--red" />
+			</div>
+		)
+	}
+	<slot />
+</section>

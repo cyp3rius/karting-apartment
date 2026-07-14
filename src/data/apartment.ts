@@ -16,6 +16,19 @@ export const apartment = {
 			"https://www.booking.com/hotel/it/karting-apartment.pl.html",
 		airbnb: "https://www.airbnb.co.in/rooms/1574660498202989419",
 		email: "hello@webninja.ei",
+		map: "https://www.google.com/maps/search/?api=1&query=45.5084261,10.1488191",
+		manager: "https://www.miiseolakehouse.com/",
+		managerLogo: "/images/miiseolakehouse/logo.png",
+	},
+	platformBrands: {
+		booking: {
+			color: "#003580",
+			icon: "https://cdn.simpleicons.org/bookingdotcom/003580",
+		},
+		airbnb: {
+			color: "#FF5A5F",
+			icon: "https://cdn.simpleicons.org/airbnb/FF5A5F",
+		},
 	},
 } as const;
 

@@ -212,12 +212,26 @@ function ApartmentMarker({
 	);
 }
 
+const POI_FADE_MS = 300;
+
 export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 	const [drawn, setDrawn] = useState(false);
+	const [displayPois, setDisplayPois] = useState(activePois);
+	const [poiLayerVisible, setPoiLayerVisible] = useState(true);
 	const strings = t(locale);
+
+	const activePoiKey = useMemo(
+		() => activePois.map((poi) => poi.id).join(","),
+		[activePois],
+	);
+	const displayPoiKey = useMemo(
+		() => displayPois.map((poi) => poi.id).join(","),
+		[displayPois],
+	);
+
 	const poiPins = useMemo(
-		() => toMapPoiPins(activePois, locale),
-		[activePois, locale],
+		() => toMapPoiPins(displayPois, locale),
+		[displayPois, locale],
 	);
 	const poiLayouts = useMemo(
 		() =>
@@ -233,6 +247,28 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 		const timer = setTimeout(() => setDrawn(true), 80);
 		return () => clearTimeout(timer);
 	}, []);
+
+	useEffect(() => {
+		if (activePoiKey === displayPoiKey) return;
+
+		const reduceMotion = window.matchMedia(
+			"(prefers-reduced-motion: reduce)",
+		).matches;
+
+		if (reduceMotion) {
+			setDisplayPois(activePois);
+			setPoiLayerVisible(true);
+			return;
+		}
+
+		setPoiLayerVisible(false);
+		const timer = window.setTimeout(() => {
+			setDisplayPois(activePois);
+			setPoiLayerVisible(true);
+		}, POI_FADE_MS);
+
+		return () => window.clearTimeout(timer);
+	}, [activePoiKey, activePois, displayPoiKey]);
 
 	const fadeClass = (delay = "") =>
 		`map-fade ${delay} ${drawn ? "map-faded" : ""}`;
@@ -372,7 +408,9 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 				)}
 
 				{/* POI markers — connectors, dots, then cards on top */}
-				<g className="map-poi-layer">
+				<g
+					className={`map-poi-layer ${poiLayerVisible ? "" : "map-poi-layer-hidden"}`}
+				>
 					<g className="map-poi-connectors">
 						{poiLayouts.map(({ pin, index, anchorX, anchorY }) => (
 							<PoiConnector

@@ -7,6 +7,15 @@
 
     --color-cream: #FAF8F5;
     --color-lake: #8BB8D4;
+
+    --shadow-2xs: 0 1px 1px rgba(26, 26, 26, 0.02);
+    --shadow-xs: 0 1px 2px rgba(26, 26, 26, 0.03);
+    --shadow-sm: 0 1px 3px rgba(26, 26, 26, 0.035);
+    --shadow: 0 1px 4px rgba(26, 26, 26, 0.04);
+    --shadow-md: 0 2px 6px rgba(26, 26, 26, 0.045);
+    --shadow-lg: 0 3px 10px rgba(26, 26, 26, 0.05);
+    --shadow-xl: 0 6px 16px rgba(26, 26, 26, 0.055);
+    --shadow-2xl: 0 10px 24px rgba(26, 26, 26, 0.06);
 }
 
 @theme inline {
@@ -56,6 +65,7 @@
 @layer base {
     html {
         scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
     }
     * {
         @apply border-border;
@@ -65,10 +75,53 @@
     }
 }
 
+/* ── Site header ── */
+.site-header {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.site-header-mobile {
+    animation: site-header-mobile-in 0.22s ease-out both;
+}
+
+@keyframes site-header-mobile-in {
+    from {
+        opacity: 0;
+        transform: translateY(-0.35rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-header-mobile {
+        animation: none;
+    }
+}
+
 /* Hero: 2/3 viewport, min 40rem (640px) */
 .hero-map-height {
     height: max(40rem, 66.67vh);
     min-height: max(40rem, 66.67vh);
+}
+
+.hero-content-readability {
+    background:
+        linear-gradient(
+            to top,
+            color-mix(in srgb, #e4e0d9 50%, transparent) 0%,
+            transparent 42%
+        ),
+        linear-gradient(
+            to right,
+            #eeebe6 0%,
+            #e8e4de 24%,
+            color-mix(in srgb, #e8e4de 55%, transparent) 42%,
+            transparent 60%
+        );
 }
 
 .hero-attraction-carousel {
@@ -92,7 +145,7 @@
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(232, 228, 222, 0.55);
-    box-shadow: 0 2px 10px rgba(26, 26, 26, 0.04);
+    box-shadow: 0 1px 5px rgba(26, 26, 26, 0.03);
     backdrop-filter: blur(10px);
 }
 
@@ -296,6 +349,15 @@
 }
 
 /* ── Map POI cards — orbit badge style ── */
+.map-poi-layer {
+    transition: opacity 0.3s ease-out;
+    opacity: 1;
+}
+
+.map-poi-layer-hidden {
+    opacity: 0;
+}
+
 .map-poi-card-fo {
     opacity: 0;
     overflow: visible;
@@ -343,8 +405,8 @@
     background: #fff;
     box-shadow:
         0 0 0 2px #fff,
-        0 0 0 3px rgba(0, 146, 70, 0.35),
-        0 3px 10px rgba(26, 26, 26, 0.18);
+        0 0 0 3px rgba(0, 146, 70, 0.28),
+        0 2px 5px rgba(26, 26, 26, 0.07);
 }
 
 .map-poi-card-thumb {
@@ -361,7 +423,7 @@
     border-radius: 999px;
     background: #fafaf8;
     border: 1px solid #e8e4de;
-    box-shadow: 0 2px 6px rgba(26, 26, 26, 0.08);
+    box-shadow: 0 1px 3px rgba(26, 26, 26, 0.04);
     display: grid;
     place-items: center;
 }
@@ -385,8 +447,8 @@
 .map-poi-card-photo-iata {
     box-shadow:
         0 0 0 2px #fff,
-        0 0 0 3px rgba(26, 26, 26, 0.2),
-        0 3px 10px rgba(26, 26, 26, 0.22);
+        0 0 0 3px rgba(26, 26, 26, 0.16),
+        0 2px 5px rgba(26, 26, 26, 0.08);
 }
 
 .map-poi-card-iata {
@@ -421,7 +483,7 @@
     font-weight: 800;
     letter-spacing: 0.1em;
     line-height: 1;
-    box-shadow: 0 2px 8px rgba(26, 26, 26, 0.2);
+    box-shadow: 0 1px 4px rgba(26, 26, 26, 0.1);
 }
 
 .poi-iata-badge-overlay {
@@ -430,15 +492,15 @@
     border-radius: 8px;
     box-shadow:
         0 0 0 2px rgba(255, 255, 255, 0.9),
-        0 3px 10px rgba(26, 26, 26, 0.25);
+        0 2px 6px rgba(26, 26, 26, 0.1);
 }
 
 .map-apartment-card {
     padding: 6px 10px;
     border-color: rgba(206, 43, 55, 0.25);
     box-shadow:
-        0 3px 12px rgba(206, 43, 55, 0.15),
-        0 2px 8px rgba(26, 26, 26, 0.08);
+        0 2px 6px rgba(206, 43, 55, 0.08),
+        0 1px 4px rgba(26, 26, 26, 0.04);
 }
 
 .map-apartment-card-dot {
@@ -465,6 +527,26 @@
     .gallery-lightbox-image,
     .gallery-expanded-item,
     .hero-attraction-carousel,
+    .hero-content-readability,
+    .hero-title-slide,
+    .about-section-copy,
+    .about-section-visual,
+    .explore-section-header,
+    .explore-poi-card,
+    .explore-poi-grid,
+    .reviews-section-header,
+    .reviews-score-panel,
+    .reviews-card,
+    .amenities-section-header,
+    .amenities-group-card,
+    .contact-section-header,
+    .contact-direct-banner,
+    .contact-form-card,
+    .contact-platforms-card,
+    .contact-management-card,
+    .about-stat-card,
+    .about-photo-card,
+    .map-poi-layer,
     .map-poi-card-fo,
     .map-poi-connector-visible {
         animation: none !important;
@@ -475,7 +557,279 @@
     }
 }
 
-/* ── Gallery ── */
+/* ── Page sections ── */
+.page-section {
+    position: relative;
+    overflow: visible;
+    padding-block: clamp(5rem, 8vw, 7rem);
+}
+
+.page-section--divided {
+    border-top: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
+}
+
+.page-section--hero-divider {
+    border-top: 3px double color-mix(in srgb, var(--border) 72%, transparent);
+}
+
+.section-divider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1;
+    display: flex;
+    width: 5rem;
+    height: 0.4375rem;
+    transform: translate(-50%, -50%);
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+    box-shadow:
+        0 1px 2px rgba(26, 26, 26, 0.03),
+        0 2px 6px rgba(26, 26, 26, 0.025);
+}
+
+.section-divider-band {
+    flex: 1 1 33.333%;
+}
+
+.section-divider-band--green {
+    background-color: var(--primary);
+}
+
+.section-divider-band--white {
+    background-color: #ffffff;
+    box-shadow:
+        inset 1px 0 0 color-mix(in srgb, var(--border) 55%, transparent),
+        inset -1px 0 0 color-mix(in srgb, var(--border) 55%, transparent);
+}
+
+.section-divider-band--red {
+    background-color: var(--accent);
+}
+
+.page-section--white {
+    background-color: #ffffff;
+}
+
+.page-section--muted {
+    background-color: color-mix(in srgb, var(--secondary) 32%, #ffffff);
+}
+
+.page-section--muted.page-section--divided {
+    border-top-color: color-mix(in srgb, var(--border) 90%, white);
+}
+
+.page-section--white + .page-section--white.page-section--divided,
+.page-section--muted + .page-section--muted.page-section--divided {
+    border-top-color: color-mix(in srgb, var(--border) 65%, transparent);
+}
+
+/* ── Explore section ── */
+.explore-section-header {
+    animation: about-rise 0.7s ease-out both;
+}
+
+.explore-carousel-dock {
+    width: min(100%, 36rem);
+}
+
+.explore-carousel-segment {
+    padding: 8px 16px;
+    gap: 6px;
+}
+
+.explore-carousel-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.explore-poi-grid {
+    animation: poi-fade-in 0.35s ease-out;
+}
+
+.explore-poi-card {
+    animation: about-stat-in 0.45s ease-out both;
+}
+
+/* ── Reviews section ── */
+.reviews-section-header {
+    animation: about-rise 0.7s ease-out both;
+}
+
+.reviews-score-panel {
+    animation: about-rise 0.7s ease-out 0.08s both;
+}
+
+.reviews-card {
+    animation: about-stat-in 0.5s ease-out both;
+}
+
+/* ── Amenities section ── */
+.amenities-section-header {
+    animation: about-rise 0.7s ease-out both;
+}
+
+.amenities-group-card {
+    animation: about-stat-in 0.5s ease-out both;
+}
+
+/* ── Contact section ── */
+.contact-section-header {
+    animation: about-rise 0.7s ease-out both;
+}
+
+.contact-direct-banner {
+    animation: about-rise 0.7s ease-out 0.08s both;
+}
+
+.contact-form-card {
+    animation: about-rise 0.7s ease-out 0.14s both;
+}
+
+.contact-platforms-card {
+    animation: about-rise 0.7s ease-out 0.2s both;
+}
+
+.contact-management-card {
+    animation: about-rise 0.7s ease-out 0.26s both;
+}
+
+.contact-platform-btn {
+    min-height: 3.25rem;
+}
+
+.contact-platform-btn--booking {
+    --platform-color: #003580;
+    border-color: color-mix(in srgb, var(--platform-color) 45%, var(--border));
+    background-color: color-mix(in srgb, var(--platform-color) 7%, #ffffff);
+    color: var(--platform-color);
+}
+
+.contact-platform-btn--booking:hover {
+    border-color: var(--platform-color);
+    background-color: color-mix(in srgb, var(--platform-color) 14%, #ffffff);
+}
+
+.contact-platform-btn--airbnb {
+    --platform-color: #ff5a5f;
+    border-color: color-mix(in srgb, var(--platform-color) 45%, var(--border));
+    background-color: color-mix(in srgb, var(--platform-color) 8%, #ffffff);
+    color: var(--platform-color);
+}
+
+.contact-platform-btn--airbnb:hover {
+    border-color: var(--platform-color);
+    background-color: color-mix(in srgb, var(--platform-color) 16%, #ffffff);
+}
+
+.contact-platform-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--platform-color) 35%, transparent);
+}
+
+/* ── About section ── */
+.about-section-copy {
+    animation: about-rise 0.7s ease-out both;
+}
+
+.about-section-visual {
+    animation: about-rise 0.7s ease-out 0.12s both;
+}
+
+.about-section-stats {
+    animation: about-rise 0.7s ease-out 0.2s both;
+}
+
+.about-stat-card {
+    animation: about-stat-in 0.5s ease-out both;
+}
+
+.about-stat-card-rating {
+    background: linear-gradient(
+        145deg,
+        color-mix(in srgb, var(--accent) 4%, white) 0%,
+        var(--card) 55%
+    );
+}
+
+.about-photo-card {
+    animation: about-rise 0.7s ease-out both;
+}
+
+.about-photo-card:nth-child(2) {
+    animation-delay: 0.14s;
+}
+
+.about-stat-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.about-stat-card:nth-child(2) {
+    animation-delay: 0.26s;
+}
+.about-stat-card:nth-child(3) {
+    animation-delay: 0.32s;
+}
+.about-stat-card:nth-child(4) {
+    animation-delay: 0.38s;
+}
+.about-stat-card:nth-child(5) {
+    animation-delay: 0.44s;
+}
+
+@keyframes about-rise {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes about-stat-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title-slider {
+    display: grid;
+    overflow: hidden;
+    padding-bottom: 0.15em;
+}
+
+.hero-title-slide {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    padding-bottom: 0.1em;
+    transition:
+        transform 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-title-slide-active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.hero-title-slide-exit {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.hero-title-slide-waiting {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
 .gallery-mosaic {
     animation: gallery-rise 0.6s ease-out both;
 }

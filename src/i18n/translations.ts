@@ -9,7 +9,7 @@ export const translations = {
 		meta: {
 			title: "Karting Apartment | Castel Mella, Lombardy",
 			description:
-				"Modern apartment near Franciacorta, Lake Garda and karting circuits. Book direct — save on platform fees. Free parking, WiFi, balcony with garden views.",
+				"Cozy apartment minutes from world-class karting tracks and international racing events in Lombardy. Lakes, cities and airports close by. Book direct — free parking and WiFi.",
 		},
 		nav: {
 			nearby: "Nearby",
@@ -19,17 +19,23 @@ export const translations = {
 			reviews: "Reviews",
 			contact: "Contact",
 			book: "Book direct",
+			menuOpen: "Open menu",
+			menuClose: "Close menu",
 		},
 		hero: {
-			eyebrow: "Castel Mella · Lombardy · Italy",
-			title: "Your base camp for Northern Italy",
+			eyebrow: "Castel Mella · Brescia · Lombardy · Italy",
+			titles: [
+				"Peaceful Northern Italy, on your doorstep",
+				"Rest easy.\nRace close.",
+				"Northern Italy, without the rush",
+			],
 			subtitle:
-				"A bright apartment between Franciacorta wine hills, Lake Garda and world-class karting tracks — with free parking and a garden-view balcony.",
+				"A cozy apartment in peaceful Castel Mella — world-class karting tracks and international racing events minutes away, plus lakes, cities, wine country and airports within easy reach.",
 			ctaPrimary: "Book direct — best price",
 			ctaSecondary: "Explore the area",
 			pinLabel: "Karting Apartment",
 			attractionTypes: {
-				motorsport: "Karting Circuits",
+				motorsport: "Karting Tracks",
 				airports: "Airports",
 				cities: "Cities",
 				lakes: "Lakes",
@@ -37,19 +43,20 @@ export const translations = {
 			},
 		},
 		nearby: {
+			eyebrow: "Karting Apartment",
 			title: "Explore the region",
 			subtitle:
-				"Airports, lakes, cities and racing circuits — all within easy reach.",
+				"World-class karting tracks, international racing events, airports, lakes and cities — all within easy reach.",
 			km: "km",
 			categories: {
 				airports: "Airports",
 				attractions: "Attractions",
-				racing: "Racing circuits",
+				racing: "Karting Tracks",
 			},
 		},
 		gallery: {
 			title: "Inside the apartment",
-			subtitle: "60 m² of comfort — balcony, kitchen, and garden views.",
+			subtitle: "60 m² of comfort — fully equipped kitchen and a quiet layout.",
 			viewAll: "View all {count} photos",
 			showMore: "+{count} more",
 			photoOf: "{current} / {total}",
@@ -58,40 +65,48 @@ export const translations = {
 			next: "Next photo",
 		},
 		about: {
-			title: "About Karting Apartment",
-			p1: "Karting Apartment is a one-bedroom home in Castel Mella, a quiet town in the Province of Brescia. Perfect for couples and motorsport fans visiting Lombardy.",
-			p2: "Enjoy a fully equipped kitchen, air conditioning, free private parking, and a balcony overlooking the garden. The Franciacorta Karting Track is just minutes away.",
+			eyebrow: "Karting Apartment",
+			title: "A calm apartment between the circuits",
+			p1: "A cozy apartment in quiet Castel Mella — one bedroom, a living room with kitchenette, and space for up to four guests.",
+			p2: "World-class karting tracks and international racing events are minutes away. Lakes, wine country and Lombardy's cities are close by when you step off the circuit.",
+			photoBedroom: "Bedroom",
+			photoLiving: "Living room",
 			stats: {
-				size: "60 m²",
-				bedrooms: "1 bedroom",
-				guests: "Up to 3 guests",
-				rating: "9.7 guest rating",
+				size: { value: "60 m²", label: "Total space" },
+				bedroom: { value: "1", label: "Bedroom" },
+				livingRoom: { value: "1", label: "Living room + kitchenette" },
+				guests: { value: "Up to 4", label: "Guests" },
+				rating: { value: "9.7", label: "Guest rating" },
 			},
 		},
 		amenities: {
-			title: "Amenities",
+			eyebrow: "Karting Apartment",
+			title: "Comfort & convenience",
+			subtitle:
+				"A fully equipped apartment in quiet Castel Mella — the practical comforts you need for a relaxing stay in Lombardy.",
 			groups: {
 				essentials: "Essentials",
 				comfort: "Comfort",
 				services: "Services",
-				activities: "Activities",
+				activities: "Out & about",
 			},
 			items: {
-				wifi: "Free WiFi",
+				wifi: "High-speed WiFi",
 				parking: "Free private parking",
 				ac: "Air conditioning",
-				kitchen: "Fully equipped kitchen",
+				kitchen: "Fully equipped kitchenette",
 				washer: "Washing machine",
-				balcony: "Balcony with garden view",
-				nonSmoking: "Non-smoking",
-				allergyFree: "Allergy-free",
-				shuttle: "Airport shuttle (paid)",
+				balcony: "Balcony",
+				nonSmoking: "Non-smoking throughout",
+				allergyFree: "Allergy-friendly",
+				shuttle: "Airport shuttle on request",
 				bikes: "Bicycle rental",
 				restaurant: "Restaurant on site",
-				cycling: "Cycling & hiking nearby",
+				cycling: "Cycling & hiking trails nearby",
 			},
 		},
 		reviews: {
+			eyebrow: "Karting Apartment",
 			title: "Guest reviews",
 			score: "9.7",
 			label: "Exceptional",
@@ -102,7 +117,7 @@ export const translations = {
 					author: "Guest from Germany",
 				},
 				{
-					text: "Lovely balcony and garden views. Host was helpful with local tips for Lake Garda.",
+					text: "Peaceful and welcoming. Host was helpful with local tips for Lake Garda.",
 					author: "Guest from Poland",
 				},
 				{
@@ -112,13 +127,22 @@ export const translations = {
 			],
 		},
 		contact: {
+			eyebrow: "Karting Apartment",
 			title: "Book direct & save",
 			subtitle:
-				"No platform fees — contact us directly for the best rate. We also list on major booking platforms.",
+				"Send a direct inquiry below — we're also listed on Booking and Airbnb.",
+			directBadge: "Best price",
+			directBenefit:
+				"Direct booking is cheaper than Booking.com or Airbnb — no commission, no middleman.",
+			formTitle: "Send a direct inquiry",
+			platformsTitle: "Also available on",
+			platformsNote:
+				"We're also listed on the booking platforms below.",
 			form: {
 				name: "Your name",
 				email: "Email address",
-				dates: "Preferred dates",
+				dateFrom: "Check-in",
+				dateTo: "Check-out",
 				message: "Message (optional)",
 				submit: "Send inquiry",
 				note: "We typically reply within 24 hours.",
@@ -127,9 +151,17 @@ export const translations = {
 				booking: "Booking.com",
 				airbnb: "Airbnb",
 			},
-			directBenefit: "Direct booking is cheaper than Booking or Airbnb.",
 			address: "Via Onzato, 16/2 · 25030 Castel Mella (BS) · Italy",
+			openMap: "Open address in Google Maps",
 			checkIn: "Check-in 14:00–20:00 · Check-out until 10:00",
+			management: {
+				title: "Licensed & professionally managed",
+				description:
+					"Licensed short-term rental with reliable check-in, cleaning and on-site support throughout your stay.",
+				licenseLabel: "Tourist rental license",
+				license: "017042-LNI-00002",
+				managerLogoAlt: "MI ISEO LAKE HOUSE logo",
+			},
 		},
 		footer: {
 			rights: "All rights reserved.",
@@ -140,7 +172,7 @@ export const translations = {
 		meta: {
 			title: "Karting Apartment | Castel Mella, Lombardia",
 			description:
-				"Appartamento moderno vicino a Franciacorta, Lago di Garda e piste kart. Prenota diretto — risparmia sulle commissioni. Parcheggio gratuito, WiFi, balcone con vista giardino.",
+				"Appartamento accogliente a pochi minuti da piste kart di livello mondiale e eventi internazionali del motorsport in Lombardia. Laghi, città e aeroporti vicini. Prenota diretto — parcheggio gratuito e WiFi.",
 		},
 		nav: {
 			nearby: "Dintorni",
@@ -150,17 +182,23 @@ export const translations = {
 			reviews: "Recensioni",
 			contact: "Contatti",
 			book: "Prenota diretto",
+			menuOpen: "Apri menu",
+			menuClose: "Chiudi menu",
 		},
 		hero: {
-			eyebrow: "Castel Mella · Lombardia · Italia",
-			title: "La tua base per il Nord Italia",
+			eyebrow: "Castel Mella · Brescia · Lombardia · Italia",
+			titles: [
+				"Il Nord Italia tranquillo, a portata di mano",
+				"Riposa in pace.\nGareggia vicino.",
+				"Il Nord Italia, senza fretta",
+			],
 			subtitle:
-				"Un appartamento luminoso tra le colline del Franciacorta, il Lago di Garda e piste kart di livello mondiale — con parcheggio gratuito e balcone con vista giardino.",
+				"Un appartamento accogliente nella pace di Castel Mella — piste kart di livello mondiale ed eventi internazionali del motorsport a pochi minuti, con laghi, città, vigneti e aeroporti facilmente raggiungibili.",
 			ctaPrimary: "Prenota diretto — miglior prezzo",
 			ctaSecondary: "Scopri la zona",
 			pinLabel: "Karting Apartment",
 			attractionTypes: {
-				motorsport: "Circuiti kart",
+				motorsport: "Piste karting",
 				airports: "Aeroporti",
 				cities: "Città",
 				lakes: "Laghi",
@@ -168,19 +206,20 @@ export const translations = {
 			},
 		},
 		nearby: {
+			eyebrow: "Karting Apartment",
 			title: "Esplora la regione",
 			subtitle:
-				"Aeroporti, laghi, città e circuiti — tutti facilmente raggiungibili.",
+				"Piste kart di livello mondiale, eventi internazionali del motorsport, aeroporti, laghi e città — tutti facilmente raggiungibili.",
 			km: "km",
 			categories: {
 				airports: "Aeroporti",
 				attractions: "Attrazioni",
-				racing: "Circuiti e kart",
+				racing: "Piste karting",
 			},
 		},
 		gallery: {
 			title: "L'appartamento",
-			subtitle: "60 m² di comfort — balcone, cucina e vista giardino.",
+			subtitle: "60 m² di comfort — cucina attrezzata e ambienti tranquilli.",
 			viewAll: "Vedi tutte le {count} foto",
 			showMore: "+{count} altre",
 			photoOf: "{current} / {total}",
@@ -189,40 +228,48 @@ export const translations = {
 			next: "Foto successiva",
 		},
 		about: {
-			title: "Karting Apartment",
-			p1: "Karting Apartment è un monolocale con soggiorno a Castel Mella, tranquilla cittadina in provincia di Brescia. Ideale per coppie e appassionati di motorsport in Lombardia.",
-			p2: "Cucina attrezzata, aria condizionata, parcheggio privato gratuito e balcone con vista giardino. La Franciacorta Karting Track è a pochi minuti.",
+			eyebrow: "Karting Apartment",
+			title: "Un appartamento tranquillo tra i circuiti",
+			p1: "Un appartamento accogliente nella tranquilla Castel Mella — una camera da letto, un soggiorno con angolo cottura e spazio per fino a quattro ospiti.",
+			p2: "Piste kart di livello mondiale ed eventi internazionali del motorsport sono a pochi minuti. Laghi, vigneti e le città della Lombardia sono vicini quando si esce dalla pista.",
+			photoBedroom: "Camera da letto",
+			photoLiving: "Soggiorno",
 			stats: {
-				size: "60 m²",
-				bedrooms: "1 camera",
-				guests: "Fino a 3 ospiti",
-				rating: "Valutazione 9.7",
+				size: { value: "60 m²", label: "Superficie" },
+				bedroom: { value: "1", label: "Camera" },
+				livingRoom: { value: "1", label: "Soggiorno con angolo cottura" },
+				guests: { value: "Fino a 4", label: "Ospiti" },
+				rating: { value: "9.7", label: "Valutazione ospiti" },
 			},
 		},
 		amenities: {
-			title: "Servizi",
+			eyebrow: "Karting Apartment",
+			title: "Comfort e praticità",
+			subtitle:
+				"Un appartamento attrezzato nella tranquilla Castel Mella — tutto il necessario per un soggiorno rilassante in Lombardia.",
 			groups: {
 				essentials: "Essenziali",
 				comfort: "Comfort",
 				services: "Servizi",
-				activities: "Attività",
+				activities: "Dintorni",
 			},
 			items: {
-				wifi: "WiFi gratuito",
+				wifi: "WiFi ad alta velocità",
 				parking: "Parcheggio privato gratuito",
 				ac: "Aria condizionata",
-				kitchen: "Cucina attrezzata",
+				kitchen: "Angolo cottura attrezzato",
 				washer: "Lavatrice",
-				balcony: "Balcone con vista giardino",
-				nonSmoking: "Non fumatori",
+				balcony: "Balcone",
+				nonSmoking: "Interamente non fumatori",
 				allergyFree: "Camere anallergiche",
-				shuttle: "Navetta aeroporto (a pagamento)",
+				shuttle: "Navetta aeroporto su richiesta",
 				bikes: "Noleggio biciclette",
 				restaurant: "Ristorante in loco",
-				cycling: "Ciclismo ed escursioni",
+				cycling: "Ciclismo ed escursioni nei dintorni",
 			},
 		},
 		reviews: {
+			eyebrow: "Karting Apartment",
 			title: "Recensioni degli ospiti",
 			score: "9.7",
 			label: "Eccezionale",
@@ -233,7 +280,7 @@ export const translations = {
 					author: "Ospite dalla Germania",
 				},
 				{
-					text: "Balcone incantevole con vista giardino. Host disponibile con consigli per il Lago di Garda.",
+					text: "Accogliente e tranquillo. Host disponibile con consigli per il Lago di Garda.",
 					author: "Ospite dalla Polonia",
 				},
 				{
@@ -243,13 +290,22 @@ export const translations = {
 			],
 		},
 		contact: {
+			eyebrow: "Karting Apartment",
 			title: "Prenota diretto e risparmia",
 			subtitle:
-				"Nessuna commissione — contattaci per la migliore tariffa. Siamo anche su Booking e Airbnb.",
+				"Invia una richiesta diretta — siamo presenti anche su Booking e Airbnb.",
+			directBadge: "Miglior prezzo",
+			directBenefit:
+				"La prenotazione diretta costa meno di Booking.com o Airbnb — nessuna commissione.",
+			formTitle: "Invia una richiesta diretta",
+			platformsTitle: "Disponibile anche su",
+			platformsNote:
+				"Siamo presenti anche sulle piattaforme di prenotazione qui sotto.",
 			form: {
 				name: "Il tuo nome",
 				email: "Indirizzo email",
-				dates: "Date preferite",
+				dateFrom: "Check-in",
+				dateTo: "Check-out",
 				message: "Messaggio (opzionale)",
 				submit: "Invia richiesta",
 				note: "Di solito rispondiamo entro 24 ore.",
@@ -258,10 +314,17 @@ export const translations = {
 				booking: "Booking.com",
 				airbnb: "Airbnb",
 			},
-			directBenefit:
-				"La prenotazione diretta costa meno di Booking o Airbnb.",
 			address: "Via Onzato, 16/2 · 25030 Castel Mella (BS) · Italia",
+			openMap: "Apri l'indirizzo in Google Maps",
 			checkIn: "Check-in 14:00–20:00 · Check-out entro le 10:00",
+			management: {
+				title: "Gestione professionale e licenza",
+				description:
+					"Affitto turistico con licenza — check-in affidabile, pulizie e assistenza in loco per tutto il soggiorno.",
+				licenseLabel: "Licenza affitti turistici",
+				license: "017042-LNI-00002",
+				managerLogoAlt: "Logo MI ISEO LAKE HOUSE",
+			},
 		},
 		footer: {
 			rights: "Tutti i diritti riservati.",
@@ -272,7 +335,7 @@ export const translations = {
 		meta: {
 			title: "Karting Apartment | Castel Mella, Lombardia",
 			description:
-				"Nowoczesny apartament blisko Franciacorty, Jeziora Garda i torów kartingowych. Rezerwuj bezpośrednio — oszczędzaj na prowizjach. Darmowy parking, WiFi, balkon z widokiem na ogród.",
+				"Przytulny apartament kilka minut od torów kartingowych światowej klasy i międzynarodowych wydarzeń wyścigowych na Lombardii. Jeziora, miasta i lotniska w pobliżu. Rezerwuj bezpośrednio — darmowy parking i WiFi.",
 		},
 		nav: {
 			nearby: "Okolica",
@@ -282,12 +345,18 @@ export const translations = {
 			reviews: "Opinie",
 			contact: "Kontakt",
 			book: "Rezerwuj bezpośrednio",
+			menuOpen: "Otwórz menu",
+			menuClose: "Zamknij menu",
 		},
 		hero: {
-			eyebrow: "Castel Mella · Lombardia · Włochy",
-			title: "Twoja baza na północy Włoch",
+			eyebrow: "Castel Mella · Brescia · Lombardia · Włochy",
+			titles: [
+				"Spokojna północ Włoch — na wyciągnięcie ręki",
+				"Odpocznij w ciszy.\nŚcigaj się blisko.",
+				"Północ Włoch bez pośpiechu",
+			],
 			subtitle:
-				"Jasny apartament między wzgórzami Franciacorty, Jeziorem Garda a światowej klasy torami kartingowymi — z darmowym parkingiem i balkonem z widokiem na ogród.",
+				"Przytulny apartament w cichej Castel Mella — tory kartingowe światowej klasy i międzynarodowe wydarzenia wyścigowe w kilka minut, a jeziora, miasta, winnice i lotniska w zasięgu ręki.",
 			ctaPrimary: "Rezerwuj bezpośrednio — najlepsza cena",
 			ctaSecondary: "Poznaj okolicę",
 			pinLabel: "Karting Apartment",
@@ -300,19 +369,20 @@ export const translations = {
 			},
 		},
 		nearby: {
+			eyebrow: "Karting Apartment",
 			title: "Odkryj region",
 			subtitle:
-				"Lotniska, jeziora, miasta i tory wyścigowe — wszystko w zasięgu ręki.",
+				"Tory kartingowe światowej klasy, międzynarodowe wydarzenia wyścigowe, lotniska, jeziora i miasta — wszystko w zasięgu ręki.",
 			km: "km",
 			categories: {
 				airports: "Lotniska",
 				attractions: "Atrakcje",
-				racing: "Tory wyścigowe",
+				racing: "Tory kartingowe",
 			},
 		},
 		gallery: {
 			title: "Wnętrze apartamentu",
-			subtitle: "60 m² komfortu — balkon, kuchnia i widok na ogród.",
+			subtitle: "60 m² komfortu — w pełni wyposażona kuchnia i spokojny układ.",
 			viewAll: "Zobacz wszystkie {count} zdjęć",
 			showMore: "+{count} więcej",
 			photoOf: "{current} / {total}",
@@ -321,40 +391,48 @@ export const translations = {
 			next: "Następne zdjęcie",
 		},
 		about: {
-			title: "O Karting Apartment",
-			p1: "Karting Apartment to apartament z jedną sypialnią w Castel Mella, spokojnej miejscowości w prowincji Brescia. Idealny dla par i fanów motorsportu odwiedzających Lombardię.",
-			p2: "W pełni wyposażona kuchnia, klimatyzacja, darmowy parking prywatny i balkon z widokiem na ogród. Tor Franciacorta Karting Track jest kilka minut drogi.",
+			eyebrow: "Karting Apartment",
+			title: "Spokojny apartament między torami",
+			p1: "Przytulny apartament w cichej Castel Mella — sypialnia, salon z aneksem kuchennym i przestrzeń dla maksymalnie czterech osób.",
+			p2: "Tory kartingowe światowej klasy i międzynarodowe wydarzenia wyścigowe są w kilka minut. Jeziora, winnice i miasta Lombardii są blisko, gdy schodzisz z toru.",
+			photoBedroom: "Sypialnia",
+			photoLiving: "Salon",
 			stats: {
-				size: "60 m²",
-				bedrooms: "1 sypialnia",
-				guests: "Do 3 gości",
-				rating: "Ocena 9.7",
+				size: { value: "60 m²", label: "Powierzchnia" },
+				bedroom: { value: "1", label: "Sypialnia" },
+				livingRoom: { value: "1", label: "Salon z aneksem kuchennym" },
+				guests: { value: "Do 4", label: "Gości" },
+				rating: { value: "9.7", label: "Ocena gości" },
 			},
 		},
 		amenities: {
-			title: "Udogodnienia",
+			eyebrow: "Karting Apartment",
+			title: "Komfort i wygoda",
+			subtitle:
+				"Wyposażony apartament w cichej Castel Mella — wszystko, czego potrzebujesz na spokojny pobyt na Lombardii.",
 			groups: {
 				essentials: "Podstawowe",
 				comfort: "Komfort",
 				services: "Usługi",
-				activities: "Aktywności",
+				activities: "Okolica",
 			},
 			items: {
-				wifi: "Darmowe WiFi",
+				wifi: "Szybkie WiFi",
 				parking: "Darmowy parking prywatny",
 				ac: "Klimatyzacja",
-				kitchen: "W pełni wyposażona kuchnia",
+				kitchen: "W pełni wyposażony aneks kuchenny",
 				washer: "Pralka",
-				balcony: "Balkon z widokiem na ogród",
-				nonSmoking: "Dla niepalących",
-				allergyFree: "Pokój antyalergiczny",
-				shuttle: "Transfer lotniskowy (płatny)",
+				balcony: "Balkon",
+				nonSmoking: "Całkowicie dla niepalących",
+				allergyFree: "Przyjazne alergikom",
+				shuttle: "Transfer lotniskowy na życzenie",
 				bikes: "Wypożyczalnia rowerów",
 				restaurant: "Restauracja na miejscu",
-				cycling: "Rower i trekking w okolicy",
+				cycling: "Trasy rowerowe i trekking w okolicy",
 			},
 		},
 		reviews: {
+			eyebrow: "Karting Apartment",
 			title: "Opinie gości",
 			score: "9.7",
 			label: "Wyjątkowy",
@@ -365,7 +443,7 @@ export const translations = {
 					author: "Gość z Niemiec",
 				},
 				{
-					text: "Piękny balkon z widokiem na ogród. Gospodarz pomocny z tipami na Jezioro Garda.",
+					text: "Przytulnie i spokojnie. Gospodarz pomocny z tipami na Jezioro Garda.",
 					author: "Gość z Polski",
 				},
 				{
@@ -375,13 +453,22 @@ export const translations = {
 			],
 		},
 		contact: {
+			eyebrow: "Karting Apartment",
 			title: "Rezerwuj bezpośrednio i oszczędzaj",
 			subtitle:
-				"Bez prowizji platform — skontaktuj się po najlepszej cenie. Jesteśmy też na Booking i Airbnb.",
+				"Wyślij zapytanie bezpośrednie — jesteśmy też na Booking i Airbnb.",
+			directBadge: "Najlepsza cena",
+			directBenefit:
+				"Rezerwacja bezpośrednia jest tańsza niż Booking.com czy Airbnb — bez prowizji i pośredników.",
+			formTitle: "Wyślij zapytanie bezpośrednie",
+			platformsTitle: "Dostępne także na",
+			platformsNote:
+				"Jesteśmy dostępni także na platformach rezerwacyjnych poniżej.",
 			form: {
 				name: "Imię i nazwisko",
 				email: "Adres e-mail",
-				dates: "Preferowane daty",
+				dateFrom: "Check-in",
+				dateTo: "Check-out",
 				message: "Wiadomość (opcjonalnie)",
 				submit: "Wyślij zapytanie",
 				note: "Odpowiadamy zazwyczaj w ciągu 24 godzin.",
@@ -390,10 +477,17 @@ export const translations = {
 				booking: "Booking.com",
 				airbnb: "Airbnb",
 			},
-			directBenefit:
-				"Rezerwacja bezpośrednia jest tańsza niż Booking czy Airbnb.",
 			address: "Via Onzato, 16/2 · 25030 Castel Mella (BS) · Włochy",
+			openMap: "Otwórz adres w Google Maps",
 			checkIn: "Zameldowanie 14:00–20:00 · Wymeldowanie do 10:00",
+			management: {
+				title: "Licencjonowany apartament z profesjonalną obsługą",
+				description:
+					"Licencjonowany wynajem krótkoterminowy — sprawdzone zameldowanie, sprzątanie i wsparcie na miejscu przez cały pobyt.",
+				licenseLabel: "Licencja na wynajem turystyczny",
+				license: "017042-LNI-00002",
+				managerLogoAlt: "Logo MI ISEO LAKE HOUSE",
+			},
 		},
 		footer: {
 			rights: "Wszelkie prawa zastrzeżone.",

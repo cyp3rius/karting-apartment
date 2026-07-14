@@ -1,13 +1,14 @@
 import type { Locale } from "@/i18n/config";
 import type { NearbyPoi } from "@/data/nearby";
 import type { RegionAttractionType } from "@/data/region-attractions";
+import { HeroTitleSlider } from "./HeroTitleSlider";
 import { HeroAttractionCarousel } from "./HeroAttractionCarousel";
 import { HeroMap } from "./HeroMap";
 
 interface HeroSectionProps {
 	locale: Locale;
 	eyebrow: string;
-	title: string;
+	titles: readonly string[];
 	subtitle: string;
 	ctaPrimary: string;
 	ctaSecondary: string;
@@ -19,7 +20,7 @@ interface HeroSectionProps {
 export function HeroSection({
 	locale,
 	eyebrow,
-	title,
+	titles,
 	subtitle,
 	ctaPrimary,
 	ctaSecondary,
@@ -31,9 +32,8 @@ export function HeroSection({
 		<section className="relative w-full hero-map-height overflow-hidden bg-[#EEEBE6]">
 			<HeroMap locale={locale} activePois={activePois} />
 
-			{/* Left panel — neighbor-land tone (#EEEBE6 → #E4E0D9), matches map neighbor fill */}
 			<div
-				className="absolute inset-y-0 left-0 z-[5] w-full sm:w-[72%] lg:w-[58%] xl:w-[52%] pointer-events-none bg-gradient-to-r from-[#EEEBE6] via-[#E8E4DE] to-transparent"
+				className="hero-content-readability absolute inset-y-0 inset-x-0 z-[6] pointer-events-none"
 				aria-hidden
 			/>
 
@@ -53,8 +53,11 @@ export function HeroSection({
 						<p className="text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-5">
 							{eyebrow}
 						</p>
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-[1.05]">
-							{title}
+						<h1
+							className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-[1.15]"
+							aria-live="polite"
+						>
+							<HeroTitleSlider titles={titles} />
 						</h1>
 						<p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-lg leading-relaxed">
 							{subtitle}
@@ -62,7 +65,7 @@ export function HeroSection({
 						<div className="flex flex-wrap gap-4">
 							<a
 								href="#contact"
-								className="inline-flex items-center px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity shadow-md"
+								className="inline-flex items-center px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity shadow-sm"
 							>
 								{ctaPrimary}
 							</a>
@@ -76,6 +79,7 @@ export function HeroSection({
 					</div>
 				</div>
 			</div>
+
 		</section>
 	);
 }
