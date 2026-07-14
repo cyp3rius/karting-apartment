@@ -1,0 +1,94 @@
+---
+/**
+ * Single LCP gate for the site:
+ * - `PerformanceObserver` + debounce (or `load` fallback)
+ * - `window.runAfterLcp(fn, delayMs?)` — queue or run; optional `delayMs` defers work after the gate opens (omit or 0 = right after LCP)
+ * - `window.runAfterLcpStaggered(fn)` — same gate, but spreads work across macrotasks (~72ms apart) to ease TTI / long tasks in lab traces
+ * - `window.__kaAfterLcp` — boolean flag (set when gate opens)
+ * - `CustomEvent('ka-after-lcp')` — for legacy listeners
+ *
+ * Must appear in `<head>` before any script that calls `runAfterLcp`.
+ */
+---
+
+<script is:inline>
+	(function () {
+		var EVENT = 'ka-after-lcp';
+
+		function notifyAfterLcp() {
+			if (window.__kaAfterLcp) return;
+			window.__kaAfterLcp = true;
+			if (typeof console !== 'undefined' && console.log) {
+				console.log(
+					'[Karting Apartment] LCP settled — third-party script injection enabled (CMP, analytics, marketing pixels).',
+				);
+			}
+			window.dispatchEvent(new CustomEvent(EVENT));
+		}
+
+		window.runAfterLcp = function (fn, delayMs) {
+			if (typeof fn !== 'function') return;
+			var extra =
+				typeof delayMs === 'number' && delayMs > 0 && isFinite(delayMs) ? delayMs : 0;
+			function run() {
+				if (extra) setTimeout(fn, extra);
+				else fn();
+			}
+			if (window.__kaAfterLcp) {
+				run();
+			} else {
+				window.addEventListener(EVENT, run, { once: true });
+			}
+		};
+
+		var staggerDelayMs = 0;
+		window.runAfterLcpStaggered = function (fn) {
+			if (typeof fn !== 'function') return;
+			var delay = staggerDelayMs;
+			staggerDelayMs += 72;
+			window.runAfterLcp(function () {
+				setTimeout(fn, delay);
+			});
+		};
+
+		var debounceMs = 200;
+		var timer;
+		var loaded = false;
+		var sawLcp = false;
+		var lcpObserver = null;
+
+		function finish() {
+			if (loaded) return;
+			loaded = true;
+			if (lcpObserver) lcpObserver.disconnect();
+			notifyAfterLcp();
+		}
+
+		function onLcpUpdate() {
+			if (loaded) return;
+			sawLcp = true;
+			clearTimeout(timer);
+			timer = setTimeout(finish, debounceMs);
+		}
+
+		if (
+			typeof PerformanceObserver !== 'undefined' &&
+			PerformanceObserver.supportedEntryTypes &&
+			PerformanceObserver.supportedEntryTypes.indexOf('largest-contentful-paint') !== -1
+		) {
+			lcpObserver = new PerformanceObserver(onLcpUpdate);
+			lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
+			setTimeout(function () {
+				if (!loaded && !sawLcp) finish();
+			}, 15000);
+		} else {
+			window.addEventListener(
+				'load',
+				function () {
+					notifyAfterLcp();
+				},
+				{ once: true },
+			);
+		}
+	})();
+</script>
