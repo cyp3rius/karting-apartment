@@ -186,22 +186,17 @@ function ApartmentMarker({
 	mapX,
 	mapY,
 	label,
-	drawn,
 }: {
 	mapX: number;
 	mapY: number;
 	label: string;
-	drawn: boolean;
 }) {
 	return (
 		<g
 			transform={`translate(${mapX}, ${mapY - PRIMARY_PIN_TIP_Y})`}
 			aria-label={label}
 		>
-			<g
-				className={`map-pin ${drawn ? "map-pin-visible" : ""}`}
-				style={{ animationDelay: "1.6s" }}
-			>
+			<g>
 				<circle r="12" fill="#CE2B37" opacity="0.12" className="map-pin-pulse" />
 				<path
 					d="M0,-10.5 C-5.25,-10.5 -9.4,-6 -9.4,0 C-9.4,7.05 0,17 0,17 C0,17 9.4,7.05 9.4,0 C9.4,-6 5.25,-10.5 0,-10.5 Z"
@@ -250,7 +245,7 @@ function useMapViewOffset() {
 }
 
 export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
-	const [drawn, setDrawn] = useState(false);
+	const [drawn] = useState(true);
 	const mapViewOffset = useMapViewOffset();
 	const [displayPois, setDisplayPois] = useState(activePois);
 	const [poiLayerVisible, setPoiLayerVisible] = useState(true);
@@ -280,11 +275,6 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 	);
 
 	useEffect(() => {
-		const timer = setTimeout(() => setDrawn(true), 80);
-		return () => clearTimeout(timer);
-	}, []);
-
-	useEffect(() => {
 		if (activePoiKey === displayPoiKey) return;
 
 		const reduceMotion = window.matchMedia(
@@ -305,9 +295,6 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 
 		return () => window.clearTimeout(timer);
 	}, [activePoiKey, activePois, displayPoiKey]);
-
-	const fadeClass = (delay = "") =>
-		`map-fade ${delay} ${drawn ? "map-faded" : ""}`;
 
 	return (
 		<div className="absolute inset-0 w-full isolate overflow-hidden" aria-hidden>
@@ -357,7 +344,7 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 					fill="url(#sea-grad)"
 				/>
 
-				<g className={fadeClass()} opacity="0.62">
+				<g opacity="0.62">
 					{neighborLandPaths.map((d, i) => (
 						<path
 							key={`neighbor-${i}`}
@@ -374,7 +361,6 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 						d={d}
 						fill="url(#land-grad)"
 						stroke="none"
-						className={fadeClass("map-fade-delay")}
 					/>
 				))}
 
@@ -387,7 +373,6 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 						strokeWidth="1.8"
 						strokeLinecap="round"
 						strokeLinejoin="round"
-						className={fadeClass("map-fade-delay")}
 					/>
 				))}
 
@@ -401,7 +386,6 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 						strokeLinecap="round"
 						strokeLinejoin="round"
 						opacity="0.85"
-						className={fadeClass("map-fade-delay")}
 					/>
 				))}
 
@@ -416,7 +400,6 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 							strokeWidth={isLombardia ? 1.2 : 0.55}
 							strokeDasharray={isLombardia ? undefined : "3 6"}
 							strokeLinejoin="round"
-							className={fadeClass("map-fade-delay")}
 							opacity={isLombardia ? 1 : 0.5}
 						/>
 					));
@@ -430,7 +413,6 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 								fill="url(#lake-fill)"
 								stroke="#5A9AB8"
 								strokeWidth="1.2"
-								className={fadeClass("map-fade-delay-2")}
 								opacity="0.92"
 							/>
 							<path
@@ -438,7 +420,6 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 								fill="none"
 								stroke="rgba(255,255,255,0.35)"
 								strokeWidth="0.6"
-								className={fadeClass("map-fade-delay-2")}
 							/>
 						</g>
 					)),
@@ -490,7 +471,6 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 						mapX={apartmentPin.mapX}
 						mapY={apartmentPin.mapY}
 						label={strings.hero.pinLabel}
-						drawn={drawn}
 					/>
 				</g>
 			</svg>

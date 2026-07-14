@@ -7,6 +7,9 @@ export const site = {
 	manager: {
 		name: "MI ISEO LAKE HOUSE",
 		url: apartment.links.manager,
+		email: apartment.managerContact.email,
+		phone: apartment.managerContact.phone,
+		phoneHref: apartment.managerContact.phoneHref,
 	},
 	email: apartment.links.email,
 	floorSize: 60,

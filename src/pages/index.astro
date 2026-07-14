@@ -14,8 +14,35 @@ export const prerender = true;
 		<title>Karting Apartment</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	</head>
-	<body class="min-h-screen flex items-center justify-center bg-[#FAFAF8] text-[#6B6B6B]">
-		<p class="animate-pulse text-sm">Loading…</p>
+	<body class="min-h-screen flex items-center justify-center bg-background text-muted-foreground">
+		<div
+			class="loading-splash flex flex-col items-center gap-5 px-6 text-center"
+			role="status"
+			aria-live="polite"
+			aria-label="Loading Karting Apartment"
+		>
+			<img
+				src="/favicon.svg"
+				alt=""
+				width="64"
+				height="64"
+				class="loading-splash-logo size-16 rounded-2xl shadow-sm"
+				decoding="async"
+			/>
+			<div class="inline-flex items-center gap-2.5">
+				<span
+					class="flex h-[0.4375rem] w-8 shrink-0 overflow-hidden rounded-full border border-border/70"
+					aria-hidden="true"
+				>
+					<span class="flex-1 bg-primary"></span>
+					<span class="flex-1 bg-white"></span>
+					<span class="flex-1 bg-accent"></span>
+				</span>
+				<span class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">
+					<span class="text-primary">Karting</span> Apartment
+				</span>
+			</div>
+		</div>
 		<script is:inline>
 			(function () {
 				var stored = localStorage.getItem("locale");

@@ -28,6 +28,11 @@ export const apartment = {
 		managerLogo: "/images/miiseolakehouse/logo.png",
 		privacyPolicy: "https://www.iubenda.com/privacy-policy/58335975",
 	},
+	managerContact: {
+		email: "segreteria@miiseolakehouse.com",
+		phone: "+39 334 181 1381",
+		phoneHref: "tel:+393341811381",
+	},
 	platformBrands: {
 		booking: {
 			color: "#003580",

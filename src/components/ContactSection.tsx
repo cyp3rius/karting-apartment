@@ -1,4 +1,4 @@
-import { BadgePercent, Clock, ExternalLink, MapPin, Mail } from "lucide-react";
+import { BadgePercent, Clock, ExternalLink, MapPin, Mail, Phone } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import { apartment } from "../data/apartment";
 import { BookingContactForm } from "./BookingContactForm";
@@ -40,6 +40,8 @@ export interface ContactStrings {
 		licenseLabel: string;
 		license: string;
 		managerLogoAlt: string;
+		emailLabel: string;
+		phoneLabel: string;
 	};
 }
 
@@ -209,6 +211,26 @@ export function ContactSection({
 						</p>
 
 						<div className="space-y-3 border-t border-border/70 pt-5">
+							<p className="flex items-start gap-2.5 text-sm text-muted-foreground">
+								<Mail className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
+								<a
+									href={`mailto:${apartment.managerContact.email}`}
+									className="underline-offset-2 transition-colors hover:text-foreground hover:underline"
+								>
+									<span className="sr-only">{strings.management.emailLabel}: </span>
+									{apartment.managerContact.email}
+								</a>
+							</p>
+							<p className="flex items-start gap-2.5 text-sm text-muted-foreground">
+								<Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
+								<a
+									href={apartment.managerContact.phoneHref}
+									className="underline-offset-2 transition-colors hover:text-foreground hover:underline"
+								>
+									<span className="sr-only">{strings.management.phoneLabel}: </span>
+									{apartment.managerContact.phone}
+								</a>
+							</p>
 							<p className="flex items-start gap-2.5 text-sm text-muted-foreground">
 								<MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
 								<a

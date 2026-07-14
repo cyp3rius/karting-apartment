@@ -201,6 +201,8 @@ export const translations = {
 				licenseLabel: "Tourist rental license",
 				license: "017042-LNI-00002",
 				managerLogoAlt: "MI ISEO LAKE HOUSE logo",
+				emailLabel: "Email",
+				phoneLabel: "Phone",
 			},
 		},
 		footer: {
@@ -411,6 +413,8 @@ export const translations = {
 				licenseLabel: "Licenza affitti turistici",
 				license: "017042-LNI-00002",
 				managerLogoAlt: "Logo MI ISEO LAKE HOUSE",
+				emailLabel: "E-mail",
+				phoneLabel: "Telefono",
 			},
 		},
 		footer: {
@@ -622,6 +626,8 @@ export const translations = {
 				licenseLabel: "Licencja na wynajem turystyczny",
 				license: "017042-LNI-00002",
 				managerLogoAlt: "Logo MI ISEO LAKE HOUSE",
+				emailLabel: "E-mail",
+				phoneLabel: "Telefon",
 			},
 		},
 		footer: {

@@ -87,6 +87,24 @@ const navLinks = [
 						{site.manager.name}
 					</a>
 				</p>
+				<ul class="mt-3 space-y-1.5 text-sm text-muted-foreground">
+					<li>
+						<a
+							href={`mailto:${site.manager.email}`}
+							class="underline-offset-2 transition-colors hover:text-foreground hover:underline"
+						>
+							{site.manager.email}
+						</a>
+					</li>
+					<li>
+						<a
+							href={site.manager.phoneHref}
+							class="underline-offset-2 transition-colors hover:text-foreground hover:underline"
+						>
+							{site.manager.phone}
+						</a>
+					</li>
+				</ul>
 			</div>
 
 			<div>

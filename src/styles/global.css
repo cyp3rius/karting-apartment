@@ -573,7 +573,40 @@
     -webkit-line-clamp: 2;
 }
 
+.loading-splash {
+    animation: loading-splash-in 0.45s ease-out both;
+}
+
+.loading-splash-logo {
+    animation: loading-splash-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes loading-splash-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes loading-splash-pulse {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.82;
+        transform: scale(0.97);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
+    .loading-splash,
+    .loading-splash-logo,
     .map-draw,
     .map-fade,
     .map-pin,
