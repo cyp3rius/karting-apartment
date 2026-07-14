@@ -261,6 +261,19 @@ const poiData: PoiInput[] = [
 		lng: 12.3155,
 	},
 	{
+		id: "cremona",
+		category: "racing",
+		name: {
+			en: "Cremona",
+			it: "Cremona",
+			pl: "Cremona",
+		},
+		distanceKm: 75,
+		image: "/images/poi/cremona.jpg",
+		lat: 45.12,
+		lng: 10.02,
+	},
+	{
 		id: "franciacorta-karting",
 		category: "racing",
 		name: {
@@ -286,19 +299,6 @@ const poiData: PoiInput[] = [
 		lat: 45.46,
 		lng: 10.48,
 	},
-	{
-		id: "cremona",
-		category: "racing",
-		name: {
-			en: "Cremona",
-			it: "Cremona",
-			pl: "Cremona",
-		},
-		distanceKm: 75,
-		image: "/images/poi/cremona.jpg",
-		lat: 45.12,
-		lng: 10.02,
-	},
 ];
 
 function withProjection(poi: PoiInput): NearbyPoi {
@@ -314,7 +314,14 @@ export const apartmentPin = projectToMap(
 );
 
 export function poisByCategory(category: PoiCategory) {
-	return nearbyPois
-		.filter((p) => p.category === category)
-		.sort((a, b) => a.distanceKm - b.distanceKm);
+	const pois = nearbyPois.filter((p) => p.category === category);
+
+	if (category === "racing") {
+		const order = ["cremona", "franciacorta-karting", "south-garda"];
+		return order
+			.map((id) => pois.find((p) => p.id === id))
+			.filter((p): p is NearbyPoi => Boolean(p));
+	}
+
+	return pois.sort((a, b) => a.distanceKm - b.distanceKm);
 }

@@ -515,7 +515,7 @@ export const translations = {
 			title: "Wnętrze apartamentu",
 			subtitle:
 				"60 m² komfortu — w pełni wyposażony aneks kuchenny i kameralny układ wnętrza.",
-			viewAll: "Zobacz wszystkie {count} zdjęć",
+			viewAll: "Zobacz wszystkie {count} zdjęcia",
 			showMore: "+{count} więcej",
 			photoOf: "{current} / {total}",
 			close: "Zamknij galerię",

@@ -3,7 +3,7 @@ import type { NearbyPoi } from "@/data/nearby";
 import { nearbyPois } from "./nearby";
 
 export const regionAttractionTypes = [
-	{ id: "motorsport", poiIds: ["franciacorta-karting", "cremona", "south-garda"] },
+	{ id: "motorsport", poiIds: ["cremona", "franciacorta-karting", "south-garda"] },
 	{ id: "airports", poiIds: ["bergamo", "verona-airport", "linate", "malpensa"] },
 	{ id: "cities", poiIds: ["brescia", "bergamo-city", "verona", "milano", "venice", "torino", "genova"] },
 	{ id: "lakes", poiIds: ["iseo", "garda", "como"] },
