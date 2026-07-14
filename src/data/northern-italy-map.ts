@@ -2,6 +2,10 @@
 // Regenerate: node scripts/generate-northern-italy-map.mjs
 export const MAP_VIEW = { width: 1400, height: 1000 } as const;
 export const MAP_VIEW_OFFSET = -183;
+/** Less left crop on narrow screens — keeps the apartment pin more centered. */
+export const MAP_VIEW_OFFSET_MOBILE = -72;
+/** Portrait phones: frame Lombardy slightly right so pins clear hero copy. */
+export const MAP_VIEW_OFFSET_MOBILE_PORTRAIT = -108;
 export const MAP_BOUNDS = {"minLng":3.602728,"maxLng":15.094686,"minLat":42.742862,"maxLat":48.185215} as const;
 export interface MapLayer { id: string; name: string; paths: string[]; }
 export const neighborLandPaths: string[] = [

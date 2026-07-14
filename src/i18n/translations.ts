@@ -9,7 +9,39 @@ export const translations = {
 		meta: {
 			title: "Karting Apartment | Castel Mella, Lombardy",
 			description:
-				"Cozy apartment minutes from world-class karting tracks and international racing events in Lombardy. Lakes, cities and airports close by. Book direct — free parking and WiFi.",
+				"Cozy 60 m² apartment in Castel Mella, Lombardy — minutes from world-class karting tracks, lakes and airports. Up to 4 guests. Book direct for the best price. Free parking & WiFi.",
+			keywords:
+				"Karting Apartment, Castel Mella, Lombardy holiday rental, karting tracks Italy, Franciacorta, Lake Iseo, Brescia apartment, book direct",
+			amenities: [
+				"Free WiFi",
+				"Free private parking",
+				"Air conditioning",
+				"Fully equipped kitchenette",
+				"Washing machine",
+				"Non-smoking",
+			],
+			faq: [
+				{
+					q: "Where is Karting Apartment located?",
+					a: "Karting Apartment is at Via Onzato 16/2, 25030 Castel Mella (BS), Lombardy, Northern Italy — between Brescia and Lake Iseo.",
+				},
+				{
+					q: "How many guests can stay?",
+					a: "The apartment sleeps up to 4 guests in one bedroom plus a living room with kitchenette. Total space is 60 m².",
+				},
+				{
+					q: "Is it close to karting tracks?",
+					a: "Yes. World-class karting circuits including Franciacorta Karting Track and South Garda Karting are within a short drive.",
+				},
+				{
+					q: "What are check-in and check-out times?",
+					a: "Check-in is between 14:00 and 20:00. Check-out is by 10:00.",
+				},
+				{
+					q: "How can I book?",
+					a: "Book direct via the inquiry form for the best rate, or on Booking.com and Airbnb. The apartment is professionally managed by MI ISEO LAKE HOUSE (license 017042-LNI-00002).",
+				},
+			],
 		},
 		nav: {
 			nearby: "Nearby",
@@ -32,6 +64,7 @@ export const translations = {
 			subtitle:
 				"A cozy apartment in peaceful Castel Mella — world-class karting tracks and international racing events minutes away, plus lakes, cities, wine country and airports within easy reach.",
 			ctaPrimary: "Book direct — best price",
+			ctaPrimaryShort: "Book direct",
 			ctaSecondary: "Explore the area",
 			pinLabel: "Karting Apartment",
 			attractionTypes: {
@@ -164,15 +197,53 @@ export const translations = {
 			},
 		},
 		footer: {
+			tagline: "Holiday apartment in Castel Mella, Lombardy",
+			explore: "Explore",
+			address: "Via Onzato, 16/2 · 25030 Castel Mella (BS) · Italy",
+			openMap: "Open in Google Maps",
+			managedBy: "Managed by",
 			rights: "All rights reserved.",
 			license: "License 017042-LNI-00002",
+			websiteBy: "Recommended and used by",
 		},
 	},
 	it: {
 		meta: {
 			title: "Karting Apartment | Castel Mella, Lombardia",
 			description:
-				"Appartamento accogliente a pochi minuti da piste kart di livello mondiale e eventi internazionali del motorsport in Lombardia. Laghi, città e aeroporti vicini. Prenota diretto — parcheggio gratuito e WiFi.",
+				"Appartamento accogliente di 60 m² a Castel Mella, Lombardia — a pochi minuti da piste kart, laghi e aeroporti. Fino a 4 ospiti. Prenota diretto al miglior prezzo. Parcheggio e WiFi gratuiti.",
+			keywords:
+				"Karting Apartment, Castel Mella, affitto vacanze Lombardia, piste karting Italia, Franciacorta, Lago d'Iseo, appartamento Brescia, prenotazione diretta",
+			amenities: [
+				"WiFi gratuito",
+				"Parcheggio privato gratuito",
+				"Aria condizionata",
+				"Cucina attrezzata",
+				"Lavatrice",
+				"Non fumatori",
+			],
+			faq: [
+				{
+					q: "Dove si trova Karting Apartment?",
+					a: "In Via Onzato 16/2, 25030 Castel Mella (BS), Lombardia — tra Brescia e il Lago d'Iseo.",
+				},
+				{
+					q: "Quanti ospiti possono alloggiare?",
+					a: "Fino a 4 ospiti: una camera da letto e soggiorno con angolo cottura. Superficie totale 60 m².",
+				},
+				{
+					q: "È vicino alle piste karting?",
+					a: "Sì. Piste di livello mondiale come Franciacorta Karting Track e South Garda Karting sono a breve distanza in auto.",
+				},
+				{
+					q: "Quali sono gli orari di check-in e check-out?",
+					a: "Check-in dalle 14:00 alle 20:00. Check-out entro le 10:00.",
+				},
+				{
+					q: "Come posso prenotare?",
+					a: "Prenota diretto tramite il modulo per la migliore tariffa, oppure su Booking.com e Airbnb. Gestito da MI ISEO LAKE HOUSE (licenza 017042-LNI-00002).",
+				},
+			],
 		},
 		nav: {
 			nearby: "Dintorni",
@@ -195,6 +266,7 @@ export const translations = {
 			subtitle:
 				"Un appartamento accogliente nella pace di Castel Mella — piste kart di livello mondiale ed eventi internazionali del motorsport a pochi minuti, con laghi, città, vigneti e aeroporti facilmente raggiungibili.",
 			ctaPrimary: "Prenota diretto — miglior prezzo",
+			ctaPrimaryShort: "Prenota diretto",
 			ctaSecondary: "Scopri la zona",
 			pinLabel: "Karting Apartment",
 			attractionTypes: {
@@ -327,15 +399,53 @@ export const translations = {
 			},
 		},
 		footer: {
+			tagline: "Appartamento vacanze a Castel Mella, Lombardia",
+			explore: "Esplora",
+			address: "Via Onzato, 16/2 · 25030 Castel Mella (BS) · Italia",
+			openMap: "Apri in Google Maps",
+			managedBy: "Gestito da",
 			rights: "Tutti i diritti riservati.",
 			license: "Licenza 017042-LNI-00002",
+			websiteBy: "Raccomandato e utilizzato da",
 		},
 	},
 	pl: {
 		meta: {
 			title: "Karting Apartment | Castel Mella, Lombardia",
 			description:
-				"Przytulny apartament kilka minut od torów kartingowych światowej klasy i międzynarodowych wydarzeń wyścigowych na Lombardii. Jeziora, miasta i lotniska w pobliżu. Rezerwuj bezpośrednio — darmowy parking i WiFi.",
+				"Przytulny apartament 60 m² w Castel Mella, w Lombardii — kilka minut od torów kartingowych, jezior i lotnisk. Do 4 gości. Zarezerwuj bezpośrednio w najlepszej cenie. Darmowy parking i WiFi.",
+			keywords:
+				"Karting Apartment, Castel Mella, wynajem wakacyjny Lombardia, tory kartingowe Włochy, Franciacorta, Jezioro Iseo, apartament Brescia, rezerwacja bezpośrednia",
+			amenities: [
+				"Darmowe WiFi",
+				"Darmowy parking prywatny",
+				"Klimatyzacja",
+				"Aneks kuchenny",
+				"Pralka",
+				"Obiekt dla niepalących",
+			],
+			faq: [
+				{
+					q: "Gdzie znajduje się Karting Apartment?",
+					a: "Pod adresem Via Onzato 16/2, 25030 Castel Mella (BS), Lombardia, północne Włochy — między Brescią a Jeziorem Iseo.",
+				},
+				{
+					q: "Ile osób może się zakwaterować?",
+					a: "Do 4 gości: jedna sypialnia i salon z aneksem kuchennym. Łączna powierzchnia 60 m².",
+				},
+				{
+					q: "Czy apartament jest blisko torów kartingowych?",
+					a: "Tak. Tory światowej klasy, m.in. Franciacorta Karting Track i South Garda Karting, są w krótkiej odległości samochodem.",
+				},
+				{
+					q: "Jakie są godziny zameldowania i wymeldowania?",
+					a: "Zameldowanie 14:00–20:00. Wymeldowanie do 10:00.",
+				},
+				{
+					q: "Jak mogę zarezerwować pobyt?",
+					a: "Najtaniej zarezerwujesz bezpośrednio przez formularz na stronie lub na Booking.com i Airbnb. Apartamentem zarządza MI ISEO LAKE HOUSE (licencja 017042-LNI-00002).",
+				},
+			],
 		},
 		nav: {
 			nearby: "Okolica",
@@ -352,12 +462,13 @@ export const translations = {
 			eyebrow: "Castel Mella · Brescia · Lombardia · Włochy",
 			titles: [
 				"Spokojna północ Włoch — na wyciągnięcie ręki",
-				"Odpocznij w ciszy.\nŚcigaj się blisko.",
+				"Odpocznij w ciszy.\nTory za rogiem.",
 				"Północ Włoch bez pośpiechu",
 			],
 			subtitle:
-				"Przytulny apartament w cichej Castel Mella — tory kartingowe światowej klasy i międzynarodowe wydarzenia wyścigowe w kilka minut, a jeziora, miasta, winnice i lotniska w zasięgu ręki.",
-			ctaPrimary: "Rezerwuj bezpośrednio — najlepsza cena",
+				"Przytulny apartament w spokojnej Castel Mella — tory kartingowe światowej klasy i międzynarodowe imprezy wyścigowe dosłownie za rogiem, a jeziora, miasta, winnice i lotniska w zasięgu krótkiej przejażdżki.",
+			ctaPrimary: "Zarezerwuj bezpośrednio — najlepsza cena",
+			ctaPrimaryShort: "Zarezerwuj bezpośrednio",
 			ctaSecondary: "Poznaj okolicę",
 			pinLabel: "Karting Apartment",
 			attractionTypes: {
@@ -372,7 +483,7 @@ export const translations = {
 			eyebrow: "Karting Apartment",
 			title: "Odkryj region",
 			subtitle:
-				"Tory kartingowe światowej klasy, międzynarodowe wydarzenia wyścigowe, lotniska, jeziora i miasta — wszystko w zasięgu ręki.",
+				"Tory kartingowe światowej klasy, międzynarodowe imprezy wyścigowe, lotniska, jeziora i miasta — wszystko w zasięgu krótkiej przejażdżki.",
 			km: "km",
 			categories: {
 				airports: "Lotniska",
@@ -382,7 +493,8 @@ export const translations = {
 		},
 		gallery: {
 			title: "Wnętrze apartamentu",
-			subtitle: "60 m² komfortu — w pełni wyposażona kuchnia i spokojny układ.",
+			subtitle:
+				"60 m² komfortu — w pełni wyposażony aneks kuchenny i kameralny układ wnętrza.",
 			viewAll: "Zobacz wszystkie {count} zdjęć",
 			showMore: "+{count} więcej",
 			photoOf: "{current} / {total}",
@@ -392,9 +504,9 @@ export const translations = {
 		},
 		about: {
 			eyebrow: "Karting Apartment",
-			title: "Spokojny apartament między torami",
-			p1: "Przytulny apartament w cichej Castel Mella — sypialnia, salon z aneksem kuchennym i przestrzeń dla maksymalnie czterech osób.",
-			p2: "Tory kartingowe światowej klasy i międzynarodowe wydarzenia wyścigowe są w kilka minut. Jeziora, winnice i miasta Lombardii są blisko, gdy schodzisz z toru.",
+			title: "Spokojny apartament. Tory za rogiem.",
+			p1: "Przytulny apartament w spokojnej Castel Mella — jedna sypialnia, salon z aneksem kuchennym i miejsce dla maksymalnie czterech gości.",
+			p2: "Tory kartingowe światowej klasy i międzynarodowe imprezy wyścigowe są zaledwie kilka minut stąd. Jeziora, winnice i miasta Lombardii masz na wyciągnięcie ręki, gdy odkładasz kask na bok.",
 			photoBedroom: "Sypialnia",
 			photoLiving: "Salon",
 			stats: {
@@ -409,7 +521,7 @@ export const translations = {
 			eyebrow: "Karting Apartment",
 			title: "Komfort i wygoda",
 			subtitle:
-				"Wyposażony apartament w cichej Castel Mella — wszystko, czego potrzebujesz na spokojny pobyt na Lombardii.",
+				"W pełni wyposażony apartament w spokojnej Castel Mella — wszystko, czego potrzebujesz do komfortowego pobytu w Lombardii.",
 			groups: {
 				essentials: "Podstawowe",
 				comfort: "Komfort",
@@ -423,7 +535,7 @@ export const translations = {
 				kitchen: "W pełni wyposażony aneks kuchenny",
 				washer: "Pralka",
 				balcony: "Balkon",
-				nonSmoking: "Całkowicie dla niepalących",
+				nonSmoking: "Zakaz palenia w całym obiekcie",
 				allergyFree: "Przyjazne alergikom",
 				shuttle: "Transfer lotniskowy na życzenie",
 				bikes: "Wypożyczalnia rowerów",
@@ -439,11 +551,11 @@ export const translations = {
 			count: "Na podstawie opinii Booking.com",
 			items: [
 				{
-					text: "Idealna lokalizacja na karting — tor Franciacorta bardzo blisko. Czysto, nowocześnie, świetny parking.",
+					text: "Świetna baza dla fanów kartingu — tor we Franciacorcie bardzo blisko. Czysto, nowocześnie, wygodny parking.",
 					author: "Gość z Niemiec",
 				},
 				{
-					text: "Przytulnie i spokojnie. Gospodarz pomocny z tipami na Jezioro Garda.",
+					text: "Przytulnie i spokojnie. Gospodarz pomocny, podpowiedział miejsca nad Jeziorem Garda.",
 					author: "Gość z Polski",
 				},
 				{
@@ -467,8 +579,8 @@ export const translations = {
 			form: {
 				name: "Imię i nazwisko",
 				email: "Adres e-mail",
-				dateFrom: "Check-in",
-				dateTo: "Check-out",
+				dateFrom: "Zameldowanie",
+				dateTo: "Wymeldowanie",
 				message: "Wiadomość (opcjonalnie)",
 				submit: "Wyślij zapytanie",
 				note: "Odpowiadamy zazwyczaj w ciągu 24 godzin.",
@@ -483,15 +595,21 @@ export const translations = {
 			management: {
 				title: "Licencjonowany apartament z profesjonalną obsługą",
 				description:
-					"Licencjonowany wynajem krótkoterminowy — sprawdzone zameldowanie, sprzątanie i wsparcie na miejscu przez cały pobyt.",
+					"Apartament objęty licencją na wynajem krótkoterminowy — sprawdzone zameldowanie, sprzątanie i wsparcie na miejscu przez cały pobyt.",
 				licenseLabel: "Licencja na wynajem turystyczny",
 				license: "017042-LNI-00002",
 				managerLogoAlt: "Logo MI ISEO LAKE HOUSE",
 			},
 		},
 		footer: {
+			tagline: "Apartament wakacyjny w Castel Mella, w Lombardii",
+			explore: "Nawigacja",
+			address: "Via Onzato, 16/2 · 25030 Castel Mella (BS) · Włochy",
+			openMap: "Otwórz w Google Maps",
+			managedBy: "Zarządzany przez",
 			rights: "Wszelkie prawa zastrzeżone.",
 			license: "Licencja 017042-LNI-00002",
+			websiteBy: "Rekomendowany i wykorzystywany przez",
 		},
 	},
 } as const;

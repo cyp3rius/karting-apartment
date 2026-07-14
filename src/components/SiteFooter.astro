@@ -1,0 +1,170 @@
+---
+import type { Locale } from "../i18n/config";
+import { localePath } from "../i18n/config";
+import { apartment } from "../data/apartment";
+import { site } from "../data/site";
+
+interface FooterNavStrings {
+	about: string;
+	amenities: string;
+	gallery: string;
+	reviews: string;
+	nearby: string;
+	contact: string;
+	book: string;
+}
+
+interface FooterStrings {
+	tagline: string;
+	explore: string;
+	address: string;
+	openMap: string;
+	managedBy: string;
+	rights: string;
+	license: string;
+	websiteBy: string;
+}
+
+interface Props {
+	locale: Locale;
+	nav: FooterNavStrings;
+	footer: FooterStrings;
+}
+
+const { locale, nav, footer } = Astro.props;
+
+const navLinks = [
+	{ key: "about", href: "#about" },
+	{ key: "amenities", href: "#amenities" },
+	{ key: "gallery", href: "#gallery" },
+	{ key: "reviews", href: "#reviews" },
+	{ key: "nearby", href: "#nearby" },
+	{ key: "contact", href: "#contact" },
+] as const;
+---
+
+<footer class="site-footer border-t border-border bg-white">
+	<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+		<div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+			<div class="lg:col-span-2">
+				<a
+					href={localePath(locale)}
+					class="site-footer-brand inline-flex items-center gap-2.5 mb-4"
+				>
+					<span
+						class="flex h-[0.4375rem] w-8 shrink-0 overflow-hidden rounded-full border border-border/70"
+						aria-hidden="true"
+					>
+						<span class="flex-1 bg-primary"></span>
+						<span class="flex-1 bg-white"></span>
+						<span class="flex-1 bg-accent"></span>
+					</span>
+					<span class="text-base font-bold tracking-tight">
+						<span class="text-primary">Karting</span> Apartment
+					</span>
+				</a>
+				<p class="text-sm text-muted-foreground leading-relaxed max-w-md mb-4">
+					{footer.tagline}
+				</p>
+				<a
+					href={apartment.links.map}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex text-sm text-muted-foreground underline-offset-2 transition-colors hover:text-foreground hover:underline"
+				>
+					{footer.address}
+					<span class="sr-only"> — {footer.openMap}</span>
+				</a>
+				<p class="mt-4 text-sm text-muted-foreground">
+					{footer.managedBy}{" "}
+					<a
+						href={site.manager.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="font-medium text-foreground underline-offset-2 hover:underline"
+					>
+						{site.manager.name}
+					</a>
+				</p>
+			</div>
+
+			<div>
+				<p class="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground mb-4">
+					{footer.explore}
+				</p>
+				<ul class="space-y-2.5">
+					{
+						navLinks.map((link) => (
+							<li>
+								<a
+									href={link.href}
+									class="text-sm text-muted-foreground transition-colors hover:text-foreground"
+								>
+									{nav[link.key]}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div>
+				<p class="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground mb-4">
+					{nav.book}
+				</p>
+				<ul class="space-y-2.5 text-sm">
+					<li>
+						<a
+							href="#contact"
+							class="inline-flex rounded-full bg-primary px-4 py-2 font-semibold text-primary-foreground shadow-sm transition-opacity hover:opacity-90"
+						>
+							{nav.book}
+						</a>
+					</li>
+					<li>
+						<a
+							href={apartment.links.booking}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-muted-foreground transition-colors hover:text-foreground"
+						>
+							Booking.com
+						</a>
+					</li>
+					<li>
+						<a
+							href={apartment.links.airbnb}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-muted-foreground transition-colors hover:text-foreground"
+						>
+							Airbnb
+						</a>
+					</li>
+					<li class="pt-2 text-xs text-muted-foreground">{footer.license}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="border-t border-border/80 bg-secondary/30">
+		<div
+			class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-muted-foreground"
+		>
+			<p>
+				© {new Date().getFullYear()} Karting Apartment — {footer.rights}
+			</p>
+			<p>
+				{footer.websiteBy}{" "}
+				<a
+					href={site.credits.website}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="font-medium text-foreground underline-offset-2 hover:underline"
+				>
+					{site.credits.label}
+				</a>
+			</p>
+		</div>
+	</div>
+</footer>

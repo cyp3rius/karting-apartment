@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, type CSSProperties } from "react";
 import {
 	Building2,
 	Flag,
@@ -30,15 +30,18 @@ interface HeroAttractionCarouselProps {
 	locale: Locale;
 	active: RegionAttractionType;
 	onChange: (type: RegionAttractionType) => void;
+	onManualSelect?: () => void;
+	autoPlay?: boolean;
 }
 
 export function HeroAttractionCarousel({
 	locale,
 	active,
 	onChange,
+	onManualSelect,
+	autoPlay = true,
 }: HeroAttractionCarouselProps) {
 	const strings = t(locale).hero.attractionTypes;
-	const [autoPlay, setAutoPlay] = useState(true);
 
 	const activeIndex = regionAttractionTypes.findIndex((t) => t.id === active);
 	const count = regionAttractionTypes.length;
@@ -55,7 +58,7 @@ export function HeroAttractionCarousel({
 
 	function select(id: RegionAttractionType) {
 		if (id !== active) onChange(id);
-		setAutoPlay(false);
+		onManualSelect?.();
 	}
 
 	return (

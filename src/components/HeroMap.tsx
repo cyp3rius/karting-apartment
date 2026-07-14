@@ -12,6 +12,8 @@ import {
 	mapRegions,
 	MAP_VIEW,
 	MAP_VIEW_OFFSET,
+	MAP_VIEW_OFFSET_MOBILE,
+	MAP_VIEW_OFFSET_MOBILE_PORTRAIT,
 	neighborLandPaths,
 } from "@/data/northern-italy-map";
 
@@ -214,8 +216,42 @@ function ApartmentMarker({
 
 const POI_FADE_MS = 300;
 
+function useMapViewOffset() {
+	const [offset, setOffset] = useState(MAP_VIEW_OFFSET);
+
+	useEffect(() => {
+		const mobileMq = window.matchMedia("(max-width: 639px)");
+		const portraitMq = window.matchMedia(
+			"(max-width: 639px) and (orientation: portrait)",
+		);
+
+		const apply = () => {
+			if (!mobileMq.matches) {
+				setOffset(MAP_VIEW_OFFSET);
+				return;
+			}
+			setOffset(
+				portraitMq.matches
+					? MAP_VIEW_OFFSET_MOBILE_PORTRAIT
+					: MAP_VIEW_OFFSET_MOBILE,
+			);
+		};
+
+		apply();
+		mobileMq.addEventListener("change", apply);
+		portraitMq.addEventListener("change", apply);
+		return () => {
+			mobileMq.removeEventListener("change", apply);
+			portraitMq.removeEventListener("change", apply);
+		};
+	}, []);
+
+	return offset;
+}
+
 export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 	const [drawn, setDrawn] = useState(false);
+	const mapViewOffset = useMapViewOffset();
 	const [displayPois, setDisplayPois] = useState(activePois);
 	const [poiLayerVisible, setPoiLayerVisible] = useState(true);
 	const strings = t(locale);
@@ -274,17 +310,18 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 		`map-fade ${delay} ${drawn ? "map-faded" : ""}`;
 
 	return (
-		<div className="absolute inset-0 w-full isolate" aria-hidden>
-			<div
-				className="absolute inset-0 z-0 bg-gradient-to-br from-[#EEEBE6] via-[#E8E4DE] to-[#C5DFF0]"
-				aria-hidden
-			/>
+		<div className="absolute inset-0 w-full isolate overflow-hidden" aria-hidden>
+			<div className="hero-map-frame absolute inset-0">
+				<div
+					className="absolute inset-0 z-0 bg-gradient-to-br from-[#EEEBE6] via-[#E8E4DE] to-[#C5DFF0]"
+					aria-hidden
+				/>
 
-			<svg
-				viewBox={`${MAP_VIEW_OFFSET} 0 ${MAP_VIEW.width} ${MAP_VIEW.height}`}
-				preserveAspectRatio="xMidYMid slice"
-				className="absolute inset-0 z-[1] w-full h-full"
-			>
+				<svg
+					viewBox={`${mapViewOffset} 0 ${MAP_VIEW.width} ${MAP_VIEW.height}`}
+					preserveAspectRatio="xMidYMid slice"
+					className="hero-map-svg absolute inset-0 z-[1] h-full w-full"
+				>
 				<defs>
 					<linearGradient id="sea-grad" x1="0" y1="0" x2="0" y2="1">
 						<stop offset="0%" stopColor="#C5DFF0" />
@@ -313,7 +350,7 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 				</defs>
 
 				<rect
-					x={MAP_VIEW_OFFSET}
+					x={mapViewOffset}
 					y={0}
 					width={MAP_VIEW.width}
 					height={MAP_VIEW.height}
@@ -458,7 +495,8 @@ export function HeroMap({ locale, activePois = [] }: HeroMapProps) {
 				</g>
 			</svg>
 
-			<div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#E4E0D9]/40 via-transparent to-transparent pointer-events-none" />
+				<div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#E4E0D9]/40 via-transparent to-transparent pointer-events-none" />
+			</div>
 		</div>
 	);
 }

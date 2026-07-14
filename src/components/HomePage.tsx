@@ -15,6 +15,7 @@ interface HomePageProps {
 		titles: readonly string[];
 		subtitle: string;
 		ctaPrimary: string;
+		ctaPrimaryShort: string;
 		ctaSecondary: string;
 	};
 }
@@ -25,10 +26,19 @@ export function HomePage({ locale, hero }: HomePageProps) {
 	const [activePois, setActivePois] = useState<NearbyPoi[]>(
 		poisForAttractionType(defaultRegionAttractionType),
 	);
+	const [carouselManual, setCarouselManual] = useState(false);
+	const [subtitleHiddenOnMobile, setSubtitleHiddenOnMobile] = useState(false);
 
 	function handleAttractionTypeChange(type: RegionAttractionType) {
 		setActiveAttractionType(type);
 		setActivePois(poisForAttractionType(type));
+	}
+
+	function handleCarouselManualSelect() {
+		setCarouselManual(true);
+		if (window.matchMedia("(max-width: 639px)").matches) {
+			setSubtitleHiddenOnMobile(true);
+		}
 	}
 
 	return (
@@ -38,6 +48,9 @@ export function HomePage({ locale, hero }: HomePageProps) {
 				activePois={activePois}
 				activeAttractionType={activeAttractionType}
 				onAttractionTypeChange={handleAttractionTypeChange}
+				subtitleHidden={subtitleHiddenOnMobile}
+				carouselAutoPlay={!carouselManual}
+				onCarouselManualSelect={handleCarouselManualSelect}
 				{...hero}
 			/>
 		</>

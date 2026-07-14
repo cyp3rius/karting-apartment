@@ -314,5 +314,7 @@ export const apartmentPin = projectToMap(
 );
 
 export function poisByCategory(category: PoiCategory) {
-	return nearbyPois.filter((p) => p.category === category);
+	return nearbyPois
+		.filter((p) => p.category === category)
+		.sort((a, b) => a.distanceKm - b.distanceKm);
 }

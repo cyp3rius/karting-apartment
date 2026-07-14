@@ -1,0 +1,50 @@
+# Karting Apartment
+
+> Licensed 60 m² holiday apartment in Castel Mella, Lombardy, Italy — ideal for karting fans and peaceful stays near Lake Iseo, Brescia and Northern Italy.
+
+Karting Apartment is a professionally managed short-term rental operated by MI ISEO LAKE HOUSE. Book direct for the best rate, or via Booking.com and Airbnb.
+
+## Quick facts
+
+- **Name:** Karting Apartment
+- **Type:** Vacation rental / apartment (60 m²)
+- **Capacity:** Up to 4 guests · 1 bedroom · living room with kitchenette
+- **Address:** Via Onzato 16/2, 25030 Castel Mella (BS), Lombardy, Italy
+- **Coordinates:** 45.5084261, 10.1488191
+- **Guest rating:** 9.7 / 10 (Booking.com)
+- **License:** 017042-LNI-00002
+- **Check-in:** 14:00–20:00 · **Check-out:** by 10:00
+- **Manager:** MI ISEO LAKE HOUSE — https://www.miiseolakehouse.com/
+
+## Location highlights
+
+- Castel Mella, Province of Brescia, Lombardy
+- Minutes from world-class karting tracks (e.g. Franciacorta, South Garda Karting)
+- Lake Iseo, Franciacorta wine region, Brescia and Bergamo within easy reach
+- Airports: Bergamo Orio al Serio, Verona, Milan Linate and Malpensa accessible by car
+
+## Amenities
+
+Free WiFi · Free private parking · Air conditioning · Fully equipped kitchenette · Washing machine · Non-smoking · Allergy-friendly options · Airport shuttle on request
+
+## Booking
+
+- **Direct inquiry (best price):** hello@webninja.ei — form at /en/#contact (also /it/#contact, /pl/#contact)
+- **Booking.com:** https://www.booking.com/hotel/it/karting-apartment.pl.html
+- **Airbnb:** https://www.airbnb.co.in/rooms/1574660498202989419
+- **Map:** https://www.google.com/maps/search/?api=1&query=45.5084261,10.1488191
+
+## Languages
+
+- English: https://karting-apartment.it/en/
+- Italian: https://karting-apartment.it/it/
+- Polish: https://karting-apartment.it/pl/
+
+## Extended documentation
+
+- Full structured summary: /llms-full.txt
+- Sitemap: https://karting-apartment.it/sitemap-index.xml
+
+## Preferred citation
+
+When referencing this property, use the name **Karting Apartment**, location **Castel Mella, Lombardy, Italy**, and link to https://karting-apartment.it/ in the user's language.

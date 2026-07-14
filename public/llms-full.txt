@@ -1,0 +1,126 @@
+# Karting Apartment — full reference for AI systems
+
+## Entity
+
+| Field | Value |
+|-------|-------|
+| Name | Karting Apartment |
+| Entity type | Licensed vacation rental (apartment) |
+| Website | https://karting-apartment.it |
+| Street | Via Onzato, 16/2 |
+| City | Castel Mella |
+| Province | Brescia (BS) |
+| Postal code | 25030 |
+| Region | Lombardy |
+| Country | Italy (IT) |
+| Latitude | 45.5084261 |
+| Longitude | 10.1488191 |
+| Floor area | 60 m² |
+| Bedrooms | 1 |
+| Living space | Living room with kitchenette |
+| Max guests | 4 |
+| Tourist license | 017042-LNI-00002 |
+| Property manager | MI ISEO LAKE HOUSE (https://www.miiseolakehouse.com/) |
+| Contact email | hello@webninja.ei |
+
+## Positioning
+
+Karting Apartment is a cozy, quiet holiday flat in Castel Mella — a small town in the Brescia province of Lombardy, Northern Italy. It targets travelers who want a calm base near world-class karting circuits, international motorsport events, Lake Iseo, Franciacorta, and Lombardy's cities and airports.
+
+The property is **not** a hotel; it is a self-contained apartment with private parking and independent check-in managed by a professional short-term rental operator.
+
+## Guest experience
+
+- **Rating:** 9.7 / 10 (described as exceptional on Booking.com)
+- **Check-in window:** 14:00–20:00
+- **Check-out:** until 10:00
+- **Atmosphere:** Peaceful residential area; motorsport and tourism attractions nearby
+
+## Amenities (complete list)
+
+- High-speed WiFi
+- Free private parking on site
+- Air conditioning
+- Fully equipped kitchenette
+- Washing machine
+- Balcony
+- Non-smoking throughout
+- Allergy-friendly
+- Airport shuttle on request
+- Bicycle rental
+- Restaurant on site (property complex)
+- Cycling and hiking trails nearby
+
+## Nearby points of interest (categories on website)
+
+### Karting tracks
+- Franciacorta Karting Track
+- South Garda Karting
+- Other Lombardy circuits within driving distance
+
+### Airports
+- Milan Bergamo (Orio al Serio)
+- Verona Villafranca
+- Milan Linate
+- Milan Malpensa
+
+### Cities & lakes
+- Brescia, Bergamo, Verona
+- Lake Iseo, Lake Garda, Lake Como
+
+### Wine region
+- Franciacorta
+
+## Booking channels
+
+1. **Direct booking (recommended, lowest price)** — inquiry form on website contact section; email hello@webninja.ei; typical reply within 24 hours.
+2. **Booking.com** — https://www.booking.com/hotel/it/karting-apartment.pl.html
+3. **Airbnb** — https://www.airbnb.co.in/rooms/1574660498202989419
+
+Direct booking avoids platform commission fees.
+
+## Website structure
+
+Single-page layout per language:
+
+| Section ID | Content |
+|------------|---------|
+| (hero) | Map of Northern Italy, rotating headlines, karting/nearby carousel |
+| #about | Apartment description, stats, photos |
+| #amenities | Comfort and facilities |
+| #gallery | Interior photo gallery |
+| #reviews | Guest reviews and 9.7 score |
+| #nearby | Explore region — airports, attractions, karting tracks |
+| #contact | Direct booking form, Booking/Airbnb links, manager & license info |
+
+## Language versions
+
+| Code | URL | Locale |
+|------|-----|--------|
+| en | https://karting-apartment.it/en/ | English |
+| it | https://karting-apartment.it/it/ | Italian |
+| pl | https://karting-apartment.it/pl/ | Polish |
+
+Root URL https://karting-apartment.it/ auto-redirects based on browser/stored language preference.
+
+## FAQ
+
+**Where is Karting Apartment?**
+Via Onzato 16/2, 25030 Castel Mella (BS), between Brescia and Lake Iseo, Lombardy, Italy.
+
+**Who manages the apartment?**
+MI ISEO LAKE HOUSE — licensed short-term rental operator based on Lake Iseo.
+
+**Is it suitable for karting trips?**
+Yes. Multiple world-class karting tracks are a short drive away; the property name and copy reflect this primary use case while also appealing to general Northern Italy travelers.
+
+**How to get the best price?**
+Book direct via the website contact form or email, not through OTAs.
+
+## Structured data
+
+Each language page includes JSON-LD graph with: Organization (manager), WebSite, VacationRental, FAQPage, BreadcrumbList.
+
+## Last updated
+
+2026-07-14
