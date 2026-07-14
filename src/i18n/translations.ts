@@ -180,6 +180,12 @@ export const translations = {
 				submit: "Send inquiry",
 				note: "We typically reply within 24 hours.",
 				minStayError: "Minimum stay is 4 nights from check-in.",
+				consent:
+					"I agree to the processing of my data by MI ISEO LAKE HOUSE for the purpose of handling this booking inquiry, in accordance with the",
+				privacyPolicy: "Privacy Policy",
+				successTitle: "Inquiry sent",
+				successText: "Thank you — we'll get back to you within 24 hours.",
+				errorText: "Something went wrong. Please try again in a moment.",
 			},
 			platforms: {
 				booking: "Booking.com",
@@ -206,6 +212,7 @@ export const translations = {
 			rights: "All rights reserved.",
 			license: "License 017042-LNI-00002",
 			websiteBy: "Recommended and used by",
+			privacyPolicy: "Privacy Policy",
 		},
 	},
 	it: {
@@ -383,6 +390,12 @@ export const translations = {
 				submit: "Invia richiesta",
 				note: "Di solito rispondiamo entro 24 ore.",
 				minStayError: "Soggiorno minimo di 4 notti dal check-in.",
+				consent:
+					"Acconsento al trattamento dei miei dati da parte di MI ISEO LAKE HOUSE per gestire questa richiesta di prenotazione, conformemente all'",
+				privacyPolicy: "Informativa sulla privacy",
+				successTitle: "Richiesta inviata",
+				successText: "Grazie — ti risponderemo entro 24 ore.",
+				errorText: "Qualcosa è andato storto. Riprova tra un momento.",
 			},
 			platforms: {
 				booking: "Booking.com",
@@ -409,6 +422,7 @@ export const translations = {
 			rights: "Tutti i diritti riservati.",
 			license: "Licenza 017042-LNI-00002",
 			websiteBy: "Raccomandato e utilizzato da",
+			privacyPolicy: "Informativa sulla privacy",
 		},
 	},
 	pl: {
@@ -587,6 +601,12 @@ export const translations = {
 				submit: "Wyślij zapytanie",
 				note: "Odpowiadamy zazwyczaj w ciągu 24 godzin.",
 				minStayError: "Minimalny pobyt to 4 noce od daty zameldowania.",
+				consent:
+					"Wyrażam zgodę na przetwarzanie moich danych przez MI ISEO LAKE HOUSE w celu obsługi zapytania rezerwacyjnego, zgodnie z",
+				privacyPolicy: "Polityką prywatności",
+				successTitle: "Zapytanie wysłane",
+				successText: "Dziękujemy — odpowiemy w ciągu 24 godzin.",
+				errorText: "Coś poszło nie tak. Spróbuj ponownie za chwilę.",
 			},
 			platforms: {
 				booking: "Booking.com",
@@ -613,6 +633,7 @@ export const translations = {
 			rights: "Wszelkie prawa zastrzeżone.",
 			license: "Licencja 017042-LNI-00002",
 			websiteBy: "Rekomendowany i wykorzystywany przez",
+			privacyPolicy: "Polityka prywatności",
 		},
 	},
 } as const;

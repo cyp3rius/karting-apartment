@@ -23,6 +23,7 @@ interface FooterStrings {
 	rights: string;
 	license: string;
 	websiteBy: string;
+	privacyPolicy: string;
 }
 
 interface Props {
@@ -154,17 +155,27 @@ const navLinks = [
 			<p>
 				© {new Date().getFullYear()} Karting Apartment — {footer.rights}
 			</p>
-			<p>
-				{footer.websiteBy}{" "}
+			<div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
 				<a
-					href={site.credits.website}
+					href={apartment.links.privacyPolicy}
 					target="_blank"
 					rel="noopener noreferrer"
 					class="font-medium text-foreground underline-offset-2 hover:underline"
 				>
-					{site.credits.label}
+					{footer.privacyPolicy}
 				</a>
-			</p>
+				<p>
+					{footer.websiteBy}{" "}
+					<a
+						href={site.credits.website}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="font-medium text-foreground underline-offset-2 hover:underline"
+					>
+						{site.credits.label}
+					</a>
+				</p>
+			</div>
 		</div>
 	</div>
 </footer>

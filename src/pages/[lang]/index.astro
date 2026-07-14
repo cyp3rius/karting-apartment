@@ -8,9 +8,12 @@ import { HomePage } from "../../components/HomePage";
 import { Gallery } from "../../components/Gallery";
 import { ExploreSection } from "../../components/ExploreSection";
 import { ContactSection } from "../../components/ContactSection";
+import { contactRecaptchaRequiredMessage } from "../../lib/recaptcha/messages";
 import { locales, type Locale } from "../../i18n/config";
 import { t } from "../../i18n/translations";
 import { apartment } from "../../data/apartment";
+
+export const prerender = true;
 
 export function getStaticPaths() {
 	return locales.map((lang) => ({ params: { lang } }));
@@ -19,6 +22,8 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const locale = lang as Locale;
 const strings = t(locale);
+const recaptchaSiteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
+const recaptchaKeyType = import.meta.env.PUBLIC_RECAPTCHA_KEY_TYPE;
 ---
 
 <SiteLayout locale={locale}>
@@ -58,13 +63,17 @@ const strings = t(locale);
 		<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
 			<ContactSection
 				client:visible
+				locale={locale}
 				strings={strings.contact}
-				email={apartment.links.email}
 				bookingUrl={apartment.links.booking}
 				airbnbUrl={apartment.links.airbnb}
 				mapUrl={apartment.links.map}
 				managerUrl={apartment.links.manager}
 				managerLogoUrl={apartment.links.managerLogo}
+				privacyPolicyUrl={apartment.links.privacyPolicy}
+				recaptchaSiteKey={recaptchaSiteKey}
+				recaptchaKeyType={recaptchaKeyType}
+				recaptchaRequiredMessage={contactRecaptchaRequiredMessage(locale)}
 			/>
 		</div>
 	</Section>

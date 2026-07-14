@@ -26,6 +26,7 @@ export const apartment = {
 		map: apartmentMapSearchUrl(address),
 		manager: "https://www.miiseolakehouse.com/",
 		managerLogo: "/images/miiseolakehouse/logo.png",
+		privacyPolicy: "https://www.iubenda.com/privacy-policy/58335975",
 	},
 	platformBrands: {
 		booking: {
