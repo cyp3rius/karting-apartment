@@ -1,12 +1,19 @@
+const address = {
+	street: "Via Onzato 16",
+	city: "Castel Mella",
+	province: "BS",
+	postalCode: "25030",
+	country: "IT",
+} as const;
+
+function apartmentMapSearchUrl(addr: typeof address) {
+	const query = `${addr.street}, ${addr.postalCode} ${addr.city} (${addr.province}), Italy`;
+	return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
 export const apartment = {
 	name: "Karting Apartment",
-	address: {
-		street: "Via Onzato, 16/2",
-		city: "Castel Mella",
-		province: "BS",
-		postalCode: "25030",
-		country: "IT",
-	},
+	address,
 	coordinates: {
 		lat: 45.5084261,
 		lng: 10.1488191,
@@ -16,7 +23,7 @@ export const apartment = {
 			"https://www.booking.com/hotel/it/karting-apartment.pl.html",
 		airbnb: "https://www.airbnb.co.in/rooms/1574660498202989419",
 		email: "hello@webninja.ei",
-		map: "https://www.google.com/maps/search/?api=1&query=45.5084261,10.1488191",
+		map: apartmentMapSearchUrl(address),
 		manager: "https://www.miiseolakehouse.com/",
 		managerLogo: "/images/miiseolakehouse/logo.png",
 	},

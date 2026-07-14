@@ -7,7 +7,7 @@
 | Name | Karting Apartment |
 | Entity type | Licensed vacation rental (apartment) |
 | Website | https://karting-apartment.it |
-| Street | Via Onzato, 16/2 |
+| Street | Via Onzato 16 |
 | City | Castel Mella |
 | Province | Brescia (BS) |
 | Postal code | 25030 |
@@ -106,7 +106,7 @@ Root URL https://karting-apartment.it/ auto-redirects based on browser/stored la
 ## FAQ
 
 **Where is Karting Apartment?**
-Via Onzato 16/2, 25030 Castel Mella (BS), between Brescia and Lake Iseo, Lombardy, Italy.
+Via Onzato 16, 25030 Castel Mella (BS), between Brescia and Lake Iseo, Lombardy, Italy.
 
 **Who manages the apartment?**
 MI ISEO LAKE HOUSE — licensed short-term rental operator based on Lake Iseo.

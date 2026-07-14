@@ -23,7 +23,7 @@ export const translations = {
 			faq: [
 				{
 					q: "Where is Karting Apartment located?",
-					a: "Karting Apartment is at Via Onzato 16/2, 25030 Castel Mella (BS), Lombardy, Northern Italy — between Brescia and Lake Iseo.",
+					a: "Karting Apartment is at Via Onzato 16, 25030 Castel Mella (BS), Lombardy, Northern Italy — between Brescia and Lake Iseo.",
 				},
 				{
 					q: "How many guests can stay?",
@@ -179,12 +179,13 @@ export const translations = {
 				message: "Message (optional)",
 				submit: "Send inquiry",
 				note: "We typically reply within 24 hours.",
+				minStayError: "Minimum stay is 4 nights from check-in.",
 			},
 			platforms: {
 				booking: "Booking.com",
 				airbnb: "Airbnb",
 			},
-			address: "Via Onzato, 16/2 · 25030 Castel Mella (BS) · Italy",
+			address: "Via Onzato 16 · 25030 Castel Mella (BS) · Italy",
 			openMap: "Open address in Google Maps",
 			checkIn: "Check-in 14:00–20:00 · Check-out until 10:00",
 			management: {
@@ -199,7 +200,7 @@ export const translations = {
 		footer: {
 			tagline: "Holiday apartment in Castel Mella, Lombardy",
 			explore: "Explore",
-			address: "Via Onzato, 16/2 · 25030 Castel Mella (BS) · Italy",
+			address: "Via Onzato 16 · 25030 Castel Mella (BS) · Italy",
 			openMap: "Open in Google Maps",
 			managedBy: "Managed by",
 			rights: "All rights reserved.",
@@ -225,7 +226,7 @@ export const translations = {
 			faq: [
 				{
 					q: "Dove si trova Karting Apartment?",
-					a: "In Via Onzato 16/2, 25030 Castel Mella (BS), Lombardia — tra Brescia e il Lago d'Iseo.",
+					a: "In Via Onzato 16, 25030 Castel Mella (BS), Lombardia — tra Brescia e il Lago d'Iseo.",
 				},
 				{
 					q: "Quanti ospiti possono alloggiare?",
@@ -381,12 +382,13 @@ export const translations = {
 				message: "Messaggio (opzionale)",
 				submit: "Invia richiesta",
 				note: "Di solito rispondiamo entro 24 ore.",
+				minStayError: "Soggiorno minimo di 4 notti dal check-in.",
 			},
 			platforms: {
 				booking: "Booking.com",
 				airbnb: "Airbnb",
 			},
-			address: "Via Onzato, 16/2 · 25030 Castel Mella (BS) · Italia",
+			address: "Via Onzato 16 · 25030 Castel Mella (BS) · Italia",
 			openMap: "Apri l'indirizzo in Google Maps",
 			checkIn: "Check-in 14:00–20:00 · Check-out entro le 10:00",
 			management: {
@@ -401,7 +403,7 @@ export const translations = {
 		footer: {
 			tagline: "Appartamento vacanze a Castel Mella, Lombardia",
 			explore: "Esplora",
-			address: "Via Onzato, 16/2 · 25030 Castel Mella (BS) · Italia",
+			address: "Via Onzato 16 · 25030 Castel Mella (BS) · Italia",
 			openMap: "Apri in Google Maps",
 			managedBy: "Gestito da",
 			rights: "Tutti i diritti riservati.",
@@ -427,7 +429,7 @@ export const translations = {
 			faq: [
 				{
 					q: "Gdzie znajduje się Karting Apartment?",
-					a: "Pod adresem Via Onzato 16/2, 25030 Castel Mella (BS), Lombardia, północne Włochy — między Brescią a Jeziorem Iseo.",
+					a: "Pod adresem Via Onzato 16, 25030 Castel Mella (BS), Lombardia, północne Włochy — między Brescią a Jeziorem Iseo.",
 				},
 				{
 					q: "Ile osób może się zakwaterować?",
@@ -584,12 +586,13 @@ export const translations = {
 				message: "Wiadomość (opcjonalnie)",
 				submit: "Wyślij zapytanie",
 				note: "Odpowiadamy zazwyczaj w ciągu 24 godzin.",
+				minStayError: "Minimalny pobyt to 4 noce od daty zameldowania.",
 			},
 			platforms: {
 				booking: "Booking.com",
 				airbnb: "Airbnb",
 			},
-			address: "Via Onzato, 16/2 · 25030 Castel Mella (BS) · Włochy",
+			address: "Via Onzato 16 · 25030 Castel Mella (BS) · Włochy",
 			openMap: "Otwórz adres w Google Maps",
 			checkIn: "Zameldowanie 14:00–20:00 · Wymeldowanie do 10:00",
 			management: {
@@ -604,7 +607,7 @@ export const translations = {
 		footer: {
 			tagline: "Apartament wakacyjny w Castel Mella, w Lombardii",
 			explore: "Nawigacja",
-			address: "Via Onzato, 16/2 · 25030 Castel Mella (BS) · Włochy",
+			address: "Via Onzato 16 · 25030 Castel Mella (BS) · Włochy",
 			openMap: "Otwórz w Google Maps",
 			managedBy: "Zarządzany przez",
 			rights: "Wszelkie prawa zastrzeżone.",

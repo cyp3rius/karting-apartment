@@ -1,5 +1,64 @@
+import { useState, type FormEvent } from "react";
 import { BadgePercent, Clock, ExternalLink, MapPin, Mail } from "lucide-react";
 import { apartment } from "../data/apartment";
+
+const MIN_STAY_NIGHTS = 4;
+
+function parseLocalDate(iso: string) {
+	const [year, month, day] = iso.split("-").map(Number);
+	return new Date(year, month - 1, day);
+}
+
+function formatLocalDate(date: Date) {
+	const year = date.getFullYear();
+	const month = String(date.getMonth() + 1).padStart(2, "0");
+	const day = String(date.getDate()).padStart(2, "0");
+	return `${year}-${month}-${day}`;
+}
+
+function addDays(iso: string, days: number) {
+	const date = parseLocalDate(iso);
+	date.setDate(date.getDate() + days);
+	return formatLocalDate(date);
+}
+
+function todayIso() {
+	return formatLocalDate(new Date());
+}
+
+function stayNights(checkIn: string, checkOut: string) {
+	const start = parseLocalDate(checkIn);
+	const end = parseLocalDate(checkOut);
+	return Math.round((end.getTime() - start.getTime()) / 86_400_000);
+}
+
+function minCheckOutDate(checkIn: string) {
+	return addDays(checkIn, MIN_STAY_NIGHTS);
+}
+
+function isStayLongEnough(checkIn: string, checkOut: string) {
+	return stayNights(checkIn, checkOut) >= MIN_STAY_NIGHTS;
+}
+
+function buildMailtoUrl(form: HTMLFormElement, email: string) {
+	const data = new FormData(form);
+	const body = [
+		`Name: ${data.get("name") ?? ""}`,
+		`Email: ${data.get("email") ?? ""}`,
+		`Check-in: ${data.get("dateFrom") ?? ""}`,
+		`Check-out: ${data.get("dateTo") ?? ""}`,
+		data.get("message") ? `Message: ${data.get("message")}` : "",
+	]
+		.filter(Boolean)
+		.join("\n");
+
+	const params = new URLSearchParams({
+		subject: "Karting Apartment — booking inquiry",
+		body,
+	});
+
+	return `mailto:${email}?${params.toString()}`;
+}
 
 export interface ContactStrings {
 	eyebrow: string;
@@ -18,6 +77,7 @@ export interface ContactStrings {
 		message: string;
 		submit: string;
 		note: string;
+		minStayError: string;
 	};
 	platforms: {
 		booking: string;
@@ -54,6 +114,71 @@ export function ContactSection({
 	managerUrl,
 	managerLogoUrl,
 }: ContactSectionProps) {
+	const [dateFrom, setDateFrom] = useState("");
+	const [dateTo, setDateTo] = useState("");
+	const [stayError, setStayError] = useState(false);
+
+	const minCheckOut = dateFrom ? minCheckOutDate(dateFrom) : undefined;
+
+	function handleDateFromChange(value: string) {
+		setDateFrom(value);
+
+		if (!value) {
+			setDateTo("");
+			setStayError(false);
+			return;
+		}
+
+		if (dateTo && !isStayLongEnough(value, dateTo)) {
+			setDateTo("");
+			setStayError(true);
+			return;
+		}
+
+		setStayError(false);
+	}
+
+	function handleDateToChange(value: string) {
+		if (!value) {
+			setDateTo("");
+			setStayError(false);
+			return;
+		}
+
+		if (!dateFrom) return;
+
+		if (!isStayLongEnough(dateFrom, value)) {
+			setStayError(true);
+			return;
+		}
+
+		setDateTo(value);
+		setStayError(false);
+	}
+
+	function handleSubmit(event: FormEvent<HTMLFormElement>) {
+		event.preventDefault();
+		const form = event.currentTarget;
+
+		if (!form.checkValidity()) {
+			form.reportValidity();
+			return;
+		}
+
+		if (!dateFrom || !dateTo) {
+			setStayError(true);
+			return;
+		}
+
+		if (!isStayLongEnough(dateFrom, dateTo)) {
+			setStayError(true);
+			document.getElementById("dateTo")?.focus();
+			return;
+		}
+
+		window.location.href = buildMailtoUrl(form, email);
+	}
+
 	return (
 		<div className="contact-section">
 			<div className="contact-section-header text-center max-w-2xl mx-auto mb-8 sm:mb-10">
@@ -87,9 +212,8 @@ export function ContactSection({
 			<div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
 				<form
 					className="contact-form-card order-1 rounded-2xl border border-primary/20 bg-card p-6 sm:p-8 shadow-sm"
-					action={`mailto:${email}`}
-					method="POST"
-					encType="text/plain"
+					onSubmit={handleSubmit}
+					noValidate
 				>
 					<div className="mb-6 flex items-center gap-3">
 						<span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -137,6 +261,10 @@ export function ContactSection({
 									type="date"
 									id="dateFrom"
 									name="dateFrom"
+									required
+									min={todayIso()}
+									value={dateFrom}
+									onChange={(e) => handleDateFromChange(e.target.value)}
 									className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary"
 								/>
 							</div>
@@ -151,8 +279,24 @@ export function ContactSection({
 									type="date"
 									id="dateTo"
 									name="dateTo"
-									className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+									required
+									min={minCheckOut}
+									value={dateTo}
+									disabled={!dateFrom}
+									onChange={(e) => handleDateToChange(e.target.value)}
+									aria-invalid={stayError}
+									aria-describedby={stayError ? "dateTo-error" : undefined}
+									className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-50"
 								/>
+								{stayError ? (
+									<p
+										id="dateTo-error"
+										className="mt-1.5 text-xs text-destructive"
+										role="alert"
+									>
+										{strings.form.minStayError}
+									</p>
+								) : null}
 							</div>
 						</div>
 						<div>
@@ -241,17 +385,19 @@ export function ContactSection({
 							href={managerUrl}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="contact-management-logo group mb-4 inline-flex max-w-full rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+							className="contact-management-logo group mb-4 inline-flex max-w-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
 						>
-							<img
-								src={managerLogoUrl}
-								alt={strings.management.managerLogoAlt}
-								width={377}
-								height={181}
-								className="h-10 w-auto max-w-full object-contain object-left opacity-90 transition-opacity group-hover:opacity-100 sm:h-11"
-								loading="lazy"
-								decoding="async"
-							/>
+							<span className="contact-management-logo-box inline-flex items-center justify-center rounded-xl px-4 py-3 sm:px-5 sm:py-3.5">
+								<img
+									src={managerLogoUrl}
+									alt={strings.management.managerLogoAlt}
+									width={377}
+									height={181}
+									className="contact-management-logo-img h-9 w-auto max-w-full object-contain sm:h-10"
+									loading="lazy"
+									decoding="async"
+								/>
+							</span>
 						</a>
 						<h3 className="text-base font-semibold text-foreground mb-2">
 							{strings.management.title}

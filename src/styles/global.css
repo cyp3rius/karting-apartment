@@ -758,6 +758,21 @@
     animation: about-rise 0.7s ease-out 0.26s both;
 }
 
+.contact-management-logo-box {
+    background-color: #a7315d;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-management-logo:hover .contact-management-logo-box,
+.contact-management-logo:focus-visible .contact-management-logo-box {
+    background-color: #962652;
+    box-shadow: 0 2px 10px rgb(167 49 93 / 28%);
+}
+
+.contact-management-logo-img {
+    filter: brightness(0) invert(1);
+}
+
 .contact-platform-btn {
     min-height: 3.25rem;
 }

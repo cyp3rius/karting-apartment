@@ -3,7 +3,7 @@
 ## Property
 
 - **Name:** Karting Apartment
-- **Address:** Via Onzato, 16/2, 25030 Castel Mella (BS), Lombardy, Italy
+- **Address:** Via Onzato 16, 25030 Castel Mella (BS), Lombardy, Italy
 - **Coordinates:** 45.508811, 10.148824
 - **Size:** 60 m², 1 bedroom, balcony, garden view
 - **Rating:** 9.7 / 10 (Booking)
