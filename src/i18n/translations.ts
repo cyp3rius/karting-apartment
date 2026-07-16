@@ -7,7 +7,7 @@ export type TranslationKeys = typeof translations.en;
 export const translations = {
 	en: {
 		meta: {
-			title: "Karting Apartment | Castel Mella, Lombardy",
+			title: "Karting Apartment | Castel Mella, Brescia, Lombardy",
 			description:
 				"Cozy 60 m² apartment in Castel Mella, Lombardy — near karting tracks, lakes and airports. Sleeps 4. Book direct for the best price.",
 			ogDescription:
@@ -221,7 +221,7 @@ export const translations = {
 	},
 	it: {
 		meta: {
-			title: "Karting Apartment | Castel Mella, Lombardia",
+			title: "Karting Apartment | Castel Mella, Brescia, Lombardia",
 			description:
 				"Appartamento di 60 m² a Castel Mella, Lombardia — vicino a piste kart, laghi e aeroporti. Fino a 4 ospiti. Prenota diretto al miglior prezzo.",
 			ogDescription:
@@ -435,7 +435,7 @@ export const translations = {
 	},
 	pl: {
 		meta: {
-			title: "Karting Apartment | Castel Mella, Lombardia",
+			title: "Karting Apartment | Castel Mella, Brescia, Lombardia",
 			description:
 				"Przytulny apartament 60 m² w Castel Mella, Lombardia — blisko torów kartingowych, jezior i lotnisk. Do 4 gości. Rezerwuj bezpośrednio w najlepszej cenie.",
 			ogDescription:

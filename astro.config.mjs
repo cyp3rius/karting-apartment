@@ -25,7 +25,11 @@ export default defineConfig({
 			filter: (page) =>
 				page !== "https://kartingapartment.pl/pl/" &&
 				page !== "https://kartingapartment.pl/pl",
-			customPages: ["https://kartingapartment.pl/"],
+			customPages: [
+				"https://kartingapartment.pl/",
+				"https://kartingapartment.pl/en/",
+				"https://kartingapartment.pl/it/",
+			],
 		}),
 	],
 	vite: {
@@ -45,8 +49,6 @@ export default defineConfig({
 	i18n: {
 		defaultLocale: "pl",
 		locales: ["en", "it", "pl"],
-		routing: {
-			prefixDefaultLocale: true,
-		},
+		routing: "manual",
 	},
 });

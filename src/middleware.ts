@@ -30,14 +30,14 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	const hostKind = resolveHostKind(context.url.hostname);
 	const unprefixed = unprefixedLocaleForHost(hostKind);
 
-	// Prefixed default locale → unprefixed `/` (e.g. .pl /pl → /, .eu /en → /)
+	// Prefixed default locale → unprefixed `/`
+	// (.pl: /pl → /, .eu: /en → /). Uses real Host at runtime (SSR routes).
 	if (path === `/${unprefixed}`) {
 		return context.redirect(`/${search}`, 301);
 	}
 
 	const response = await next();
 
-	// Persist locale cookie when visiting a language page
 	const seg = path.slice(1).split("/")[0];
 	if (seg && isLocale(seg)) {
 		context.cookies.set(LOCALE_COOKIE, seg, {

@@ -1,15 +1,20 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import HomeSections from "../../components/HomeSections.astro";
-import { locales, type Locale } from "../../i18n/config";
+import { isLocale, type Locale } from "../../i18n/config";
 
-export const prerender = true;
-
-export function getStaticPaths() {
-	return locales.map((lang) => ({ params: { lang } }));
-}
+/**
+ * SSR so host-aware middleware can redirect:
+ * - .pl /pl → /
+ * - .eu /en → /
+ * while still serving full pages for the other domain.
+ */
+export const prerender = false;
 
 const { lang } = Astro.params;
+if (!lang || !isLocale(lang)) {
+	return Astro.redirect("/");
+}
 const locale = lang as Locale;
 ---
 
@@ -17,7 +22,7 @@ const locale = lang as Locale;
 	<HomeSections locale={locale} />
 </SiteLayout>
 
-<script define:vars={{ locale }}>
+<script is:inline define:vars={{ locale }}>
 	localStorage.setItem("locale", locale);
 	document.cookie = `locale=${locale};path=/;max-age=31536000;samesite=lax`;
 </script>
