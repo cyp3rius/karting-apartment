@@ -36,6 +36,14 @@ export function isStayLongEnough(checkIn: string, checkOut: string) {
 	return stayNights(checkIn, checkOut) >= MIN_STAY_NIGHTS;
 }
 
+export function estimateStayTotal(
+	checkIn: string,
+	checkOut: string,
+	nightlyRate: number,
+) {
+	return stayNights(checkIn, checkOut) * nightlyRate;
+}
+
 const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 export function isIsoDate(value: unknown): value is string {

@@ -3,12 +3,18 @@ import type { Locale } from "@/i18n/config";
 import { apartment } from "../data/apartment";
 import { BookingContactForm } from "./BookingContactForm";
 
+function formatPrice(template: string, price: number) {
+	return template.replace("{price}", String(price));
+}
+
 export interface ContactStrings {
 	eyebrow: string;
 	title: string;
 	subtitle: string;
 	directBenefit: string;
 	directBadge: string;
+	priceFromPerNight: string;
+	pricePerNight: string;
 	formTitle: string;
 	platformsTitle: string;
 	platformsNote: string;
@@ -21,6 +27,10 @@ export interface ContactStrings {
 		submit: string;
 		note: string;
 		minStayError: string;
+		estimateBadge: string;
+		estimateTotal: string;
+		estimateBreakdown: string;
+		estimateNote: string;
 		consent: string;
 		privacyPolicy: string;
 		successTitle: string;
@@ -98,19 +108,33 @@ export function ContactSection({
 						<p className="text-base sm:text-lg font-medium text-foreground leading-snug">
 							{strings.directBenefit}
 						</p>
+						<p className="mt-2 text-xl sm:text-2xl font-bold text-primary">
+							{formatPrice(
+								strings.priceFromPerNight,
+								apartment.pricing.direct,
+							)}
+						</p>
 					</div>
 				</div>
 			</div>
 
 			<div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
 				<div className="contact-form-card order-1 rounded-2xl border border-primary/20 bg-card p-6 sm:p-8 shadow-sm">
-					<div className="mb-6 flex items-center gap-3">
-						<span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-							<Mail className="size-4" strokeWidth={2} aria-hidden />
-						</span>
-						<h3 className="text-lg font-semibold text-foreground">
-							{strings.formTitle}
-						</h3>
+					<div className="mb-6 flex items-center justify-between gap-4">
+						<div className="flex items-center gap-3">
+							<span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+								<Mail className="size-4" strokeWidth={2} aria-hidden />
+							</span>
+							<h3 className="text-lg font-semibold text-foreground">
+								{strings.formTitle}
+							</h3>
+						</div>
+						<p className="shrink-0 text-sm font-semibold text-primary">
+							{formatPrice(
+								strings.priceFromPerNight,
+								apartment.pricing.direct,
+							)}
+						</p>
 					</div>
 
 					<BookingContactForm
@@ -137,43 +161,59 @@ export function ContactSection({
 								href={bookingUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="contact-platform-btn contact-platform-btn--booking group inline-flex items-center justify-center gap-2.5 rounded-xl border px-4 py-3.5 text-sm font-semibold transition-colors"
+								className="contact-platform-btn contact-platform-btn--booking group inline-flex flex-col items-center justify-center gap-1 rounded-xl border px-4 py-3.5 text-sm font-semibold transition-colors"
 							>
-								<img
-									src={apartment.platformBrands.booking.icon}
-									alt=""
-									width={20}
-									height={20}
-									className="size-5 shrink-0"
-									loading="lazy"
-									decoding="async"
-								/>
-								<span>{strings.platforms.booking}</span>
-								<ExternalLink
-									className="size-3.5 shrink-0 opacity-70 transition-opacity group-hover:opacity-100"
-									aria-hidden
-								/>
+								<span className="inline-flex items-center gap-2.5">
+									<img
+										src={apartment.platformBrands.booking.icon}
+										alt=""
+										width={20}
+										height={20}
+										className="size-5 shrink-0"
+										loading="lazy"
+										decoding="async"
+									/>
+									<span>{strings.platforms.booking}</span>
+									<ExternalLink
+										className="size-3.5 shrink-0 opacity-70 transition-opacity group-hover:opacity-100"
+										aria-hidden
+									/>
+								</span>
+								<span className="text-xs font-medium text-muted-foreground">
+									{formatPrice(
+										strings.pricePerNight,
+										apartment.pricing.booking,
+									)}
+								</span>
 							</a>
 							<a
 								href={airbnbUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="contact-platform-btn contact-platform-btn--airbnb group inline-flex items-center justify-center gap-2.5 rounded-xl border px-4 py-3.5 text-sm font-semibold transition-colors"
+								className="contact-platform-btn contact-platform-btn--airbnb group inline-flex flex-col items-center justify-center gap-1 rounded-xl border px-4 py-3.5 text-sm font-semibold transition-colors"
 							>
-								<img
-									src={apartment.platformBrands.airbnb.icon}
-									alt=""
-									width={20}
-									height={20}
-									className="size-5 shrink-0"
-									loading="lazy"
-									decoding="async"
-								/>
-								<span>{strings.platforms.airbnb}</span>
-								<ExternalLink
-									className="size-3.5 shrink-0 opacity-70 transition-opacity group-hover:opacity-100"
-									aria-hidden
-								/>
+								<span className="inline-flex items-center gap-2.5">
+									<img
+										src={apartment.platformBrands.airbnb.icon}
+										alt=""
+										width={20}
+										height={20}
+										className="size-5 shrink-0"
+										loading="lazy"
+										decoding="async"
+									/>
+									<span>{strings.platforms.airbnb}</span>
+									<ExternalLink
+										className="size-3.5 shrink-0 opacity-70 transition-opacity group-hover:opacity-100"
+										aria-hidden
+									/>
+								</span>
+								<span className="text-xs font-medium text-muted-foreground">
+									{formatPrice(
+										strings.pricePerNight,
+										apartment.pricing.airbnb,
+									)}
+								</span>
 							</a>
 						</div>
 					</div>

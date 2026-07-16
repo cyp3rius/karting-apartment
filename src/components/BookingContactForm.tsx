@@ -2,10 +2,13 @@ import { useRef, useState } from "react";
 import { CheckCircle, Loader2 } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import {
+	estimateStayTotal,
 	isStayLongEnough,
 	minCheckOutDate,
+	stayNights,
 	todayIso,
 } from "@/lib/booking-dates";
+import { apartment } from "@/data/apartment";
 import {
 	RECAPTCHA_ACTION_CONTACT,
 	encodeRecaptchaValidationFromEnterpriseToken,
@@ -17,6 +20,13 @@ import {
 
 const SUBMIT_URL = "/api/contact";
 
+function formatTemplate(
+	template: string,
+	vars: Record<string, string | number>,
+) {
+	return template.replace(/\{(\w+)\}/g, (_, key) => String(vars[key] ?? ""));
+}
+
 export interface BookingFormStrings {
 	name: string;
 	email: string;
@@ -26,6 +36,10 @@ export interface BookingFormStrings {
 	submit: string;
 	note: string;
 	minStayError: string;
+	estimateBadge: string;
+	estimateTotal: string;
+	estimateBreakdown: string;
+	estimateNote: string;
 	consent: string;
 	privacyPolicy: string;
 	successTitle: string;
@@ -59,6 +73,12 @@ export function BookingContactForm({
 	const [error, setError] = useState<string | null>(null);
 
 	const minCheckOut = dateFrom ? minCheckOutDate(dateFrom) : undefined;
+	const showEstimate =
+		Boolean(dateFrom && dateTo && isStayLongEnough(dateFrom, dateTo));
+	const estimateNights = showEstimate ? stayNights(dateFrom, dateTo) : 0;
+	const estimateTotal = showEstimate
+		? estimateStayTotal(dateFrom, dateTo, apartment.pricing.direct)
+		: 0;
 
 	function handleDateFromChange(value: string) {
 		setDateFrom(value);
@@ -252,6 +272,28 @@ export function BookingContactForm({
 					) : null}
 				</div>
 			</div>
+			{showEstimate ? (
+				<div
+					className="rounded-xl border border-primary/20 bg-primary/5 px-4 py-3.5 sm:px-5"
+					aria-live="polite"
+				>
+					<p className="text-xs font-semibold uppercase tracking-[0.12em] text-primary">
+						{strings.estimateBadge}
+					</p>
+					<p className="mt-1 text-2xl font-bold tracking-tight text-foreground">
+						{formatTemplate(strings.estimateTotal, { total: estimateTotal })}
+					</p>
+					<p className="mt-0.5 text-sm text-muted-foreground">
+						{formatTemplate(strings.estimateBreakdown, {
+							nights: estimateNights,
+							rate: apartment.pricing.direct,
+						})}
+					</p>
+					<p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+						{strings.estimateNote}
+					</p>
+				</div>
+			) : null}
 			<div>
 				<label className="mb-1.5 block text-sm font-medium" htmlFor="message">
 					{strings.message}

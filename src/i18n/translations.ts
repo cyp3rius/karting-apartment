@@ -167,6 +167,8 @@ export const translations = {
 			directBadge: "Best price",
 			directBenefit:
 				"Direct booking is cheaper than Booking.com or Airbnb — no commission, no middleman.",
+			priceFromPerNight: "from {price} EUR / night",
+			pricePerNight: "{price} EUR / night",
 			formTitle: "Send a direct inquiry",
 			platformsTitle: "Also available on",
 			platformsNote:
@@ -180,6 +182,11 @@ export const translations = {
 				submit: "Send inquiry",
 				note: "We typically reply within 24 hours.",
 				minStayError: "Minimum stay is 4 nights from check-in.",
+				estimateBadge: "Indicative estimate",
+				estimateTotal: "~{total} EUR",
+				estimateBreakdown: "{nights} nights × {rate} EUR / night",
+				estimateNote:
+					"Indicative price for direct booking. Includes apartment preparation, linens, towels and welcome pack. Final quote confirmed after we reply to your inquiry.",
 				consent:
 					"I agree to the processing of my data by MI ISEO LAKE HOUSE for the purpose of handling this booking inquiry, in accordance with the",
 				privacyPolicy: "Privacy Policy",
@@ -379,6 +386,8 @@ export const translations = {
 			directBadge: "Miglior prezzo",
 			directBenefit:
 				"La prenotazione diretta costa meno di Booking.com o Airbnb — nessuna commissione.",
+			priceFromPerNight: "da {price} EUR / notte",
+			pricePerNight: "{price} EUR / notte",
 			formTitle: "Invia una richiesta diretta",
 			platformsTitle: "Disponibile anche su",
 			platformsNote:
@@ -392,6 +401,11 @@ export const translations = {
 				submit: "Invia richiesta",
 				note: "Di solito rispondiamo entro 24 ore.",
 				minStayError: "Soggiorno minimo di 4 notti dal check-in.",
+				estimateBadge: "Stima indicativa",
+				estimateTotal: "~{total} EUR",
+				estimateBreakdown: "{nights} notti × {rate} EUR / notte",
+				estimateNote:
+					"Prezzo orientativo per prenotazione diretta. Include preparazione dell'appartamento, biancheria da letto, asciugamani e welcome pack. Il preventivo definitivo sarà confermato nella risposta alla richiesta.",
 				consent:
 					"Acconsento al trattamento dei miei dati da parte di MI ISEO LAKE HOUSE per gestire questa richiesta di prenotazione, conformemente all'",
 				privacyPolicy: "Informativa sulla privacy",
@@ -592,6 +606,8 @@ export const translations = {
 			directBadge: "Najlepsza cena",
 			directBenefit:
 				"Rezerwacja bezpośrednia jest tańsza niż Booking.com czy Airbnb — bez prowizji i pośredników.",
+			priceFromPerNight: "od {price} EUR / dobę",
+			pricePerNight: "{price} EUR / dobę",
 			formTitle: "Wyślij zapytanie bezpośrednie",
 			platformsTitle: "Dostępne także na",
 			platformsNote:
@@ -605,6 +621,11 @@ export const translations = {
 				submit: "Wyślij zapytanie",
 				note: "Odpowiadamy zazwyczaj w ciągu 24 godzin.",
 				minStayError: "Minimalny pobyt to 4 noce od daty zameldowania.",
+				estimateBadge: "Szacunkowa cena",
+				estimateTotal: "~{total} EUR",
+				estimateBreakdown: "{nights} nocy × {rate} EUR / dobę",
+				estimateNote:
+					"Cena orientacyjna przy rezerwacji bezpośredniej. Obejmuje przygotowanie apartamentu, pościel, ręczniki i welcome pack. Ostateczną kwotę potwierdzimy w odpowiedzi na zapytanie.",
 				consent:
 					"Wyrażam zgodę na przetwarzanie moich danych przez MI ISEO LAKE HOUSE w celu obsługi zapytania rezerwacyjnego, zgodnie z",
 				privacyPolicy: "Polityką prywatności",

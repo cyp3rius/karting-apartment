@@ -43,6 +43,12 @@ export const apartment = {
 			icon: "https://cdn.simpleicons.org/airbnb/FF5A5F",
 		},
 	},
+	pricing: {
+		currency: "EUR",
+		direct: 130,
+		booking: 150,
+		airbnb: 200,
+	},
 } as const;
 
 export const galleryImages = [
