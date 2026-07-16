@@ -36,15 +36,15 @@ Free WiFi · Free private parking · Air conditioning · Fully equipped kitchene
 
 ## Languages
 
-- English: https://karting-apartment.it/en/
-- Italian: https://karting-apartment.it/it/
-- Polish: https://karting-apartment.it/pl/
+- English: https://kartingapartment.pl/en/
+- Italian: https://kartingapartment.pl/it/
+- Polish: https://kartingapartment.pl/pl/
 
 ## Extended documentation
 
 - Full structured summary: /llms-full.txt
-- Sitemap: https://karting-apartment.it/sitemap-index.xml
+- Sitemap: https://kartingapartment.pl/sitemap-index.xml
 
 ## Preferred citation
 
-When referencing this property, use the name **Karting Apartment**, location **Castel Mella, Lombardy, Italy**, and link to https://karting-apartment.it/ in the user's language.
+When referencing this property, use the name **Karting Apartment**, location **Castel Mella, Lombardy, Italy**, and link to https://kartingapartment.pl/ in the user's language.

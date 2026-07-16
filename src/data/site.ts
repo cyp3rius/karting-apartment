@@ -1,7 +1,7 @@
-import { apartment, galleryImages, gallerySrc } from "./apartment";
+import { apartment } from "./apartment";
 
 export const site = {
-	url: "https://karting-apartment.it",
+	url: "https://kartingapartment.pl",
 	name: apartment.name,
 	license: "017042-LNI-00002",
 	manager: {
@@ -25,9 +25,9 @@ export const site = {
 	},
 	checkIn: "14:00",
 	checkOut: "10:00",
-	ogImage: gallerySrc(galleryImages[3]),
+	ogImage: "/og-image.png",
 	ogImageWidth: 1200,
-	ogImageHeight: 800,
+	ogImageHeight: 630,
 	geo: {
 		latitude: apartment.coordinates.lat,
 		longitude: apartment.coordinates.lng,

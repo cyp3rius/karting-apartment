@@ -10,7 +10,7 @@ import vercel from "@astrojs/vercel";
 const root = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-	site: "https://karting-apartment.it",
+	site: "https://kartingapartment.pl",
 	integrations: [
 		react(),
 		sitemap({
@@ -23,8 +23,8 @@ export default defineConfig({
 				},
 			},
 			filter: (page) =>
-				page !== "https://karting-apartment.it/" &&
-				page !== "https://karting-apartment.it",
+				page !== "https://kartingapartment.pl/" &&
+				page !== "https://kartingapartment.pl",
 		}),
 	],
 	vite: {

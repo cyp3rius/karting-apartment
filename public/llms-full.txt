@@ -6,7 +6,7 @@
 |-------|-------|
 | Name | Karting Apartment |
 | Entity type | Licensed vacation rental (apartment) |
-| Website | https://karting-apartment.it |
+| Website | https://kartingapartment.pl |
 | Street | Via Onzato 16 |
 | City | Castel Mella |
 | Province | Brescia (BS) |
@@ -97,11 +97,12 @@ Single-page layout per language:
 
 | Code | URL | Locale |
 |------|-----|--------|
-| en | https://karting-apartment.it/en/ | English |
-| it | https://karting-apartment.it/it/ | Italian |
-| pl | https://karting-apartment.it/pl/ | Polish |
+| en | https://kartingapartment.pl/en/ | English |
+| it | https://kartingapartment.pl/it/ | Italian |
+| pl | https://kartingapartment.pl/pl/ | Polish |
 
-Root URL https://karting-apartment.it/ auto-redirects based on browser/stored language preference.
+Root URL https://kartingapartment.pl/ auto-redirects based on browser/stored language preference.
+Also available at https://kartingapartment.eu/ (redirects to .pl).
 
 ## FAQ
 
