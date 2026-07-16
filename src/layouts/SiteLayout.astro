@@ -1,5 +1,9 @@
 ---
 import type { Locale } from "../i18n/config";
+import {
+	resolveHostKind,
+	unprefixedLocaleForHost,
+} from "../i18n/config";
 import { t } from "../i18n/translations";
 import { SiteHeader } from "../components/SiteHeader";
 import SeoHead from "../components/SeoHead.astro";
@@ -15,6 +19,9 @@ interface Props {
 
 const { locale } = Astro.props;
 const strings = t(locale);
+const unprefixedLocale = unprefixedLocaleForHost(
+	resolveHostKind(Astro.url.hostname),
+);
 ---
 
 <!doctype html>
@@ -31,10 +38,20 @@ const strings = t(locale);
 	</head>
 	<body class="min-h-screen flex flex-col bg-background text-foreground antialiased">
 		<GoogleTagManagerBody />
-		<SiteHeader client:load locale={locale} strings={strings.nav} />
+		<SiteHeader
+			client:load
+			locale={locale}
+			unprefixedLocale={unprefixedLocale}
+			strings={strings.nav}
+		/>
 		<main id="main-content" class="flex-1">
 			<slot />
 		</main>
-		<SiteFooter locale={locale} nav={strings.nav} footer={strings.footer} />
+		<SiteFooter
+			locale={locale}
+			unprefixedLocale={unprefixedLocale}
+			nav={strings.nav}
+			footer={strings.footer}
+		/>
 	</body>
 </html>

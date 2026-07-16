@@ -98,6 +98,7 @@ Thumbs.db
 
 # Temporary folders
 tmp/
+.tmp-og/
 temp/
 
 # Local Netlify folder

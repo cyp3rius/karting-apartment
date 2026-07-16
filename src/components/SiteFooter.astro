@@ -28,11 +28,12 @@ interface FooterStrings {
 
 interface Props {
 	locale: Locale;
+	unprefixedLocale: Locale;
 	nav: FooterNavStrings;
 	footer: FooterStrings;
 }
 
-const { locale, nav, footer } = Astro.props;
+const { locale, unprefixedLocale, nav, footer } = Astro.props;
 
 const navLinks = [
 	{ key: "about", href: "#about" },
@@ -49,7 +50,7 @@ const navLinks = [
 		<div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
 			<div class="lg:col-span-2">
 				<a
-					href={localePath(locale)}
+					href={localePath(locale, "", unprefixedLocale)}
 					class="site-footer-brand inline-flex items-center gap-2.5 mb-4"
 				>
 					<span

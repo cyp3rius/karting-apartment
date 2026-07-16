@@ -4,11 +4,12 @@ import type { PageMeta } from "../lib/seo";
 import {
 	buildJsonLdGraph,
 	hreflangLinks,
+	ogImageUrl,
 	ogLocaleAlternates,
 	ogLocaleMap,
 	pageUrl,
 } from "../lib/seo";
-import { absoluteUrl, site } from "../data/site";
+import { site } from "../data/site";
 
 interface Props {
 	locale: Locale;
@@ -18,7 +19,7 @@ interface Props {
 const { locale, meta } = Astro.props;
 
 const canonical = pageUrl(locale);
-const ogImage = absoluteUrl(site.ogImage);
+const ogImage = ogImageUrl(locale);
 const jsonLd = buildJsonLdGraph(locale, meta);
 ---
 
@@ -50,7 +51,7 @@ const jsonLd = buildJsonLdGraph(locale, meta);
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content={site.name} />
 <meta property="og:title" content={meta.title} />
-<meta property="og:description" content={meta.description} />
+<meta property="og:description" content={meta.ogDescription} />
 <meta property="og:url" content={canonical} />
 <meta property="og:locale" content={ogLocaleMap[locale]} />
 {
@@ -66,7 +67,7 @@ const jsonLd = buildJsonLdGraph(locale, meta);
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={meta.title} />
-<meta name="twitter:description" content={meta.description} />
+<meta name="twitter:description" content={meta.ogDescription} />
 <meta name="twitter:image" content={ogImage} />
 <meta name="twitter:image:alt" content={meta.title} />
 

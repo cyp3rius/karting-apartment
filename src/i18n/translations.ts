@@ -9,7 +9,9 @@ export const translations = {
 		meta: {
 			title: "Karting Apartment | Castel Mella, Lombardy",
 			description:
-				"Cozy 60 m² apartment in Castel Mella, Lombardy — minutes from world-class karting tracks, lakes and airports. Up to 4 guests. Book direct for the best price. Free parking & WiFi.",
+				"Cozy 60 m² apartment in Castel Mella, Lombardy — near karting tracks, lakes and airports. Sleeps 4. Book direct for the best price.",
+			ogDescription:
+				"60 m² apartment in Castel Mella near karting tracks and lakes. Sleeps 4. Book direct.",
 			keywords:
 				"Karting Apartment, Castel Mella, Lombardy holiday rental, karting tracks Italy, Franciacorta, Lake Iseo, Brescia apartment, book direct",
 			amenities: [
@@ -221,7 +223,9 @@ export const translations = {
 		meta: {
 			title: "Karting Apartment | Castel Mella, Lombardia",
 			description:
-				"Appartamento accogliente di 60 m² a Castel Mella, Lombardia — a pochi minuti da piste kart, laghi e aeroporti. Fino a 4 ospiti. Prenota diretto al miglior prezzo. Parcheggio e WiFi gratuiti.",
+				"Appartamento di 60 m² a Castel Mella, Lombardia — vicino a piste kart, laghi e aeroporti. Fino a 4 ospiti. Prenota diretto al miglior prezzo.",
+			ogDescription:
+				"Appartamento 60 m² a Castel Mella vicino a piste kart e laghi. 4 ospiti. Prenota diretto.",
 			keywords:
 				"Karting Apartment, Castel Mella, affitto vacanze Lombardia, piste karting Italia, Franciacorta, Lago d'Iseo, appartamento Brescia, prenotazione diretta",
 			amenities: [
@@ -433,7 +437,9 @@ export const translations = {
 		meta: {
 			title: "Karting Apartment | Castel Mella, Lombardia",
 			description:
-				"Przytulny apartament 60 m² w Castel Mella, w Lombardii — kilka minut od torów kartingowych, jezior i lotnisk. Do 4 gości. Zarezerwuj bezpośrednio w najlepszej cenie. Darmowy parking i WiFi.",
+				"Przytulny apartament 60 m² w Castel Mella, Lombardia — blisko torów kartingowych, jezior i lotnisk. Do 4 gości. Rezerwuj bezpośrednio w najlepszej cenie.",
+			ogDescription:
+				"Apartament 60 m² w Castel Mella blisko torów i jezior. Do 4 gości. Rezerwuj bezpośrednio.",
 			keywords:
 				"Karting Apartment, Castel Mella, wynajem wakacyjny Lombardia, tory kartingowe Włochy, Franciacorta, Jezioro Iseo, apartament Brescia, rezerwacja bezpośrednia",
 			amenities: [

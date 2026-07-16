@@ -1,11 +1,12 @@
 import type { Locale } from "@/i18n/config";
-import { locales, localePath } from "@/i18n/config";
+import { canonicalLocalePath, fallbackLocale, locales } from "@/i18n/config";
 import { apartment, galleryImages, gallerySrc } from "@/data/apartment";
 import { absoluteUrl, site } from "@/data/site";
 
 export interface PageMeta {
 	title: string;
 	description: string;
+	ogDescription: string;
 	keywords: string;
 	amenities: readonly string[];
 	faq: readonly { q: string; a: string }[];
@@ -23,8 +24,13 @@ const inLanguageMap: Record<Locale, string> = {
 	pl: "pl",
 };
 
+/** Canonical URLs always on kartingapartment.pl (PL unprefixed). */
 export function pageUrl(locale: Locale): string {
-	return absoluteUrl(localePath(locale));
+	return absoluteUrl(canonicalLocalePath(locale));
+}
+
+export function ogImageUrl(locale: Locale): string {
+	return absoluteUrl(site.ogImageByLocale[locale] ?? site.ogImage);
 }
 
 export function hreflangLinks() {
@@ -33,7 +39,7 @@ export function hreflangLinks() {
 			hreflang: l,
 			href: pageUrl(l),
 		})),
-		{ hreflang: "x-default", href: pageUrl("en") },
+		{ hreflang: "x-default", href: pageUrl(fallbackLocale) },
 	];
 }
 

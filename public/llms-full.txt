@@ -97,12 +97,12 @@ Single-page layout per language:
 
 | Code | URL | Locale |
 |------|-----|--------|
-| en | https://kartingapartment.pl/en/ | English |
+| pl | https://kartingapartment.pl/ | Polish (default on .pl) |
+| en | https://kartingapartment.pl/en/ | English (fallback; default on .eu) |
 | it | https://kartingapartment.pl/it/ | Italian |
-| pl | https://kartingapartment.pl/pl/ | Polish |
 
-Root URL https://kartingapartment.pl/ auto-redirects based on browser/stored language preference.
-Also available at https://kartingapartment.eu/ (redirects to .pl).
+Root URL on kartingapartment.pl serves Polish. kartingapartment.eu auto-detects language (fallback English at `/`).
+Also available at https://kartingapartment.eu/.
 
 ## FAQ
 

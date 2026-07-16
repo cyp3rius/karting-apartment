@@ -27,10 +27,20 @@ export interface NavStrings {
 
 interface SiteHeaderProps {
 	locale: Locale;
+	unprefixedLocale: Locale;
 	strings: NavStrings;
 }
 
-export function SiteHeader({ locale, strings }: SiteHeaderProps) {
+function persistLocale(nextLocale: Locale) {
+	localStorage.setItem("locale", nextLocale);
+	document.cookie = `locale=${nextLocale};path=/;max-age=31536000;samesite=lax`;
+}
+
+export function SiteHeader({
+	locale,
+	unprefixedLocale,
+	strings,
+}: SiteHeaderProps) {
 	const [scrolled, setScrolled] = useState(false);
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [activeSection, setActiveSection] = useState<string>("");
@@ -81,10 +91,6 @@ export function SiteHeader({ locale, strings }: SiteHeaderProps) {
 		setMenuOpen(false);
 	}
 
-	function handleLocaleClick(nextLocale: Locale) {
-		localStorage.setItem("locale", nextLocale);
-	}
-
 	return (
 		<header
 			className={[
@@ -96,7 +102,7 @@ export function SiteHeader({ locale, strings }: SiteHeaderProps) {
 		>
 			<div className="site-header-bar mx-auto flex h-16 max-w-screen-xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
 				<a
-					href={localePath(locale)}
+					href={localePath(locale, "", unprefixedLocale)}
 					className="site-header-logo group inline-flex min-w-0 items-center gap-2.5"
 				>
 					<span
@@ -141,8 +147,8 @@ export function SiteHeader({ locale, strings }: SiteHeaderProps) {
 						{locales.map((l) => (
 							<a
 								key={l}
-								href={localePath(l)}
-								onClick={() => handleLocaleClick(l)}
+								href={localePath(l, "", unprefixedLocale)}
+								onClick={() => persistLocale(l)}
 								className={[
 									"rounded-full px-2.5 py-1 uppercase transition-colors",
 									l === locale

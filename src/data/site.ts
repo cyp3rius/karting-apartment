@@ -1,3 +1,4 @@
+import type { Locale } from "../i18n/config";
 import { apartment } from "./apartment";
 
 export const site = {
@@ -25,7 +26,12 @@ export const site = {
 	},
 	checkIn: "14:00",
 	checkOut: "10:00",
-	ogImage: "/og-image.png",
+	ogImage: "/og-image.jpg",
+	ogImageByLocale: {
+		en: "/og-image-en.jpg",
+		it: "/og-image-it.jpg",
+		pl: "/og-image-pl.jpg",
+	} satisfies Record<Locale, string>,
 	ogImageWidth: 1200,
 	ogImageHeight: 630,
 	geo: {

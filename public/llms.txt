@@ -36,9 +36,10 @@ Free WiFi · Free private parking · Air conditioning · Fully equipped kitchene
 
 ## Languages
 
+- Polish (default on .pl): https://kartingapartment.pl/
 - English: https://kartingapartment.pl/en/
 - Italian: https://kartingapartment.pl/it/
-- Polish: https://kartingapartment.pl/pl/
+- Also: https://kartingapartment.eu/ (English default, auto-detect)
 
 ## Extended documentation
 

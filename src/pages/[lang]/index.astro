@@ -81,4 +81,5 @@ const recaptchaKeyType = import.meta.env.PUBLIC_RECAPTCHA_KEY_TYPE;
 
 <script define:vars={{ locale }}>
 	localStorage.setItem("locale", locale);
+	document.cookie = `locale=${locale};path=/;max-age=31536000;samesite=lax`;
 </script>

@@ -15,7 +15,7 @@ export default defineConfig({
 		react(),
 		sitemap({
 			i18n: {
-				defaultLocale: "en",
+				defaultLocale: "pl",
 				locales: {
 					en: "en-US",
 					it: "it-IT",
@@ -23,8 +23,9 @@ export default defineConfig({
 				},
 			},
 			filter: (page) =>
-				page !== "https://kartingapartment.pl/" &&
-				page !== "https://kartingapartment.pl",
+				page !== "https://kartingapartment.pl/pl/" &&
+				page !== "https://kartingapartment.pl/pl",
+			customPages: ["https://kartingapartment.pl/"],
 		}),
 	],
 	vite: {
@@ -42,7 +43,7 @@ export default defineConfig({
 		},
 	}),
 	i18n: {
-		defaultLocale: "en",
+		defaultLocale: "pl",
 		locales: ["en", "it", "pl"],
 		routing: {
 			prefixDefaultLocale: true,
