@@ -1,10 +1,8 @@
 import { defineMiddleware } from "astro:middleware";
 import {
-	detectLocale,
 	isLocale,
 	resolveHostKind,
 	unprefixedLocaleForHost,
-	type Locale,
 } from "./i18n/config";
 
 const LOCALE_COOKIE = "locale";
@@ -24,7 +22,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	if (
 		path.startsWith("/api") ||
 		path.startsWith("/_") ||
-		path.includes(".") // static files e.g. /og-image-pl.png, /favicon.svg
+		path.includes(".")
 	) {
 		return next();
 	}
@@ -32,31 +30,9 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	const hostKind = resolveHostKind(context.url.hostname);
 	const unprefixed = unprefixedLocaleForHost(hostKind);
 
-	// Prefixed default locale → unprefixed `/`
+	// Prefixed default locale → unprefixed `/` (e.g. .pl /pl → /, .eu /en → /)
 	if (path === `/${unprefixed}`) {
 		return context.redirect(`/${search}`, 301);
-	}
-
-	// `/` behavior
-	if (path === "/") {
-		if (hostKind === "eu") {
-			const cookieVal = context.cookies.get(LOCALE_COOKIE)?.value;
-			const preferred: Locale =
-				cookieVal && isLocale(cookieVal)
-					? cookieVal
-					: detectLocale(context.request.headers.get("accept-language"));
-
-			if (preferred !== unprefixed) {
-				return context.redirect(`/${preferred}/${search}`, 302);
-			}
-		}
-
-		context.cookies.set(LOCALE_COOKIE, unprefixed, {
-			path: "/",
-			maxAge: 60 * 60 * 24 * 365,
-			sameSite: "lax",
-		});
-		return context.rewrite(`/${unprefixed}/`);
 	}
 
 	const response = await next();

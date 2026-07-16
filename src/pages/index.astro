@@ -1,0 +1,46 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import HomeSections from "../components/HomeSections.astro";
+import {
+	detectLocale,
+	isLocale,
+	resolveHostKind,
+	unprefixedLocaleForHost,
+	type Locale,
+} from "../i18n/config";
+
+/** SSR so `/` works on Vercel (no static index) and can be host-aware. */
+export const prerender = false;
+
+const hostKind = resolveHostKind(Astro.url.hostname);
+const unprefixed = unprefixedLocaleForHost(hostKind);
+
+if (hostKind === "eu") {
+	const cookieVal = Astro.cookies.get("locale")?.value;
+	const preferred: Locale =
+		cookieVal && isLocale(cookieVal)
+			? cookieVal
+			: detectLocale(Astro.request.headers.get("accept-language"));
+
+	if (preferred !== unprefixed) {
+		return Astro.redirect(`/${preferred}/`, 302);
+	}
+}
+
+const locale = unprefixed;
+
+Astro.cookies.set("locale", locale, {
+	path: "/",
+	maxAge: 60 * 60 * 24 * 365,
+	sameSite: "lax",
+});
+---
+
+<SiteLayout locale={locale}>
+	<HomeSections locale={locale} />
+</SiteLayout>
+
+<script define:vars={{ locale }}>
+	localStorage.setItem("locale", locale);
+	document.cookie = `locale=${locale};path=/;max-age=31536000;samesite=lax`;
+</script>

@@ -1,0 +1,74 @@
+---
+import Section from "./Section.astro";
+import { AboutSection } from "./AboutSection";
+import { AmenitiesSection } from "./AmenitiesSection";
+import { ReviewsSection } from "./ReviewsSection";
+import { HomePage } from "./HomePage";
+import { Gallery } from "./Gallery";
+import { ExploreSection } from "./ExploreSection";
+import { ContactSection } from "./ContactSection";
+import { contactRecaptchaRequiredMessage } from "../lib/recaptcha/messages";
+import type { Locale } from "../i18n/config";
+import { t } from "../i18n/translations";
+import { apartment } from "../data/apartment";
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const strings = t(locale);
+const recaptchaSiteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
+const recaptchaKeyType = import.meta.env.PUBLIC_RECAPTCHA_KEY_TYPE;
+---
+
+<HomePage client:load locale={locale} hero={strings.hero} />
+
+<AboutSection client:visible strings={strings.about} />
+
+<Section id="amenities" tone="muted">
+	<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+		<AmenitiesSection client:visible strings={strings.amenities} />
+	</div>
+</Section>
+
+<Section id="gallery" tone="white">
+	<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="text-center mb-12">
+			<h2 class="text-3xl sm:text-4xl font-bold mb-4">{strings.gallery.title}</h2>
+			<p class="text-muted-foreground text-lg max-w-2xl mx-auto">{strings.gallery.subtitle}</p>
+		</div>
+		<Gallery client:load locale={locale} title="Karting Apartment" />
+	</div>
+</Section>
+
+<Section id="reviews" tone="muted">
+	<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+		<ReviewsSection client:visible strings={strings.reviews} />
+	</div>
+</Section>
+
+<Section id="nearby" tone="white">
+	<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+		<ExploreSection client:visible locale={locale} strings={strings.nearby} />
+	</div>
+</Section>
+
+<Section id="contact" tone="muted">
+	<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+		<ContactSection
+			client:visible
+			locale={locale}
+			strings={strings.contact}
+			bookingUrl={apartment.links.booking}
+			airbnbUrl={apartment.links.airbnb}
+			mapUrl={apartment.links.map}
+			managerUrl={apartment.links.manager}
+			managerLogoUrl={apartment.links.managerLogo}
+			privacyPolicyUrl={apartment.links.privacyPolicy}
+			recaptchaSiteKey={recaptchaSiteKey}
+			recaptchaKeyType={recaptchaKeyType}
+			recaptchaRequiredMessage={contactRecaptchaRequiredMessage(locale)}
+		/>
+	</div>
+</Section>
