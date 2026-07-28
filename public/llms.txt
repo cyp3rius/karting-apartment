@@ -44,7 +44,7 @@ Free WiFi · Free private parking · Air conditioning · Fully equipped kitchene
 ## Extended documentation
 
 - Full structured summary: /llms-full.txt
-- Sitemap: https://kartingapartment.pl/sitemap-index.xml
+- Sitemap: https://kartingapartment.pl/sitemap.xml
 
 ## Preferred citation
 

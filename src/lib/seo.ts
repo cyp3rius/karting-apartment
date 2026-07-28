@@ -80,13 +80,16 @@ export function buildVacationRentalSchema(locale: Locale, meta: PageMeta) {
 		"@context": "https://schema.org",
 		"@type": "VacationRental",
 		"@id": `${pageUrl(locale)}#vacation-rental`,
+		additionalType: "Apartment",
 		name: site.name,
 		description: meta.description,
 		url: pageUrl(locale),
 		inLanguage: inLanguageMap[locale],
+		knowsLanguage: ["en-US", "it-IT", "pl-PL"],
 		image: images,
-		photo: images,
 		identifier: site.license,
+		latitude: site.geo.latitude,
+		longitude: site.geo.longitude,
 		geo: {
 			"@type": "GeoCoordinates",
 			latitude: site.geo.latitude,
@@ -101,32 +104,45 @@ export function buildVacationRentalSchema(locale: Locale, meta: PageMeta) {
 			addressCountry: apartment.address.country,
 		},
 		containsPlace: {
-			"@type": "Apartment",
+			"@type": "Accommodation",
+			additionalType: "EntirePlace",
 			name: site.name,
+			numberOfBedrooms: site.bedrooms,
+			numberOfBathroomsTotal: site.bathrooms,
 			numberOfRooms: site.bedrooms + 1,
+			bed: site.beds.map((bed) => ({
+				"@type": "BedDetails" as const,
+				numberOfBeds: bed.numberOfBeds,
+				typeOfBed: bed.typeOfBed,
+			})),
 			occupancy: {
 				"@type": "QuantitativeValue",
-				maxValue: site.occupancy,
-				unitText: "guests",
+				value: site.occupancy,
 			},
 			floorSize: {
 				"@type": "QuantitativeValue",
 				value: site.floorSize,
 				unitCode: site.floorSizeUnit,
 			},
-			amenityFeature: meta.amenities.map((name) => ({
-				"@type": "LocationFeatureSpecification",
-				name,
-				value: true,
+			amenityFeature: site.amenities.map((amenity) => ({
+				"@type": "LocationFeatureSpecification" as const,
+				name: amenity.name,
+				value: amenity.value,
 			})),
 		},
 		checkinTime: site.checkIn,
 		checkoutTime: site.checkOut,
-		aggregateRating: {
-			"@type": "AggregateRating",
-			ratingValue: site.rating.value,
-			bestRating: site.rating.best,
-		},
+		...(site.rating.reviewCount != null
+			? {
+					aggregateRating: {
+						"@type": "AggregateRating" as const,
+						ratingValue: site.rating.value,
+						bestRating: site.rating.best,
+						worstRating: 1,
+						reviewCount: site.rating.reviewCount,
+					},
+				}
+			: {}),
 		managedBy: {
 			"@type": "Organization",
 			name: site.manager.name,
