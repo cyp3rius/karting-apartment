@@ -2,50 +2,30 @@
 
 > Licensed 60 m² holiday apartment in Castel Mella, Lombardy, Italy — ideal for karting fans and peaceful stays near Lake Iseo, Brescia and Northern Italy.
 
-Karting Apartment is a professionally managed short-term rental operated by MI ISEO LAKE HOUSE. Book direct for the best rate, or via Booking.com and Airbnb.
+Karting Apartment is a professionally managed short-term rental operated by MI ISEO LAKE HOUSE. Book direct for the best rate, or via Booking.com and Airbnb. Capacity: up to 4 guests, 1 bedroom plus living room with kitchenette. License 017042-LNI-00002. Check-in 14:00–20:00, check-out by 10:00. Guest rating 9.7 / 10 on Booking.com.
 
-## Quick facts
+## Pages
 
-- **Name:** Karting Apartment
-- **Type:** Vacation rental / apartment (60 m²)
-- **Capacity:** Up to 4 guests · 1 bedroom · living room with kitchenette
-- **Address:** Via Onzato 16, 25030 Castel Mella (BS), Lombardy, Italy
-- **Coordinates:** 45.5084261, 10.1488191
-- **Guest rating:** 9.7 / 10 (Booking.com)
-- **License:** 017042-LNI-00002
-- **Check-in:** 14:00–20:00 · **Check-out:** by 10:00
-- **Manager:** MI ISEO LAKE HOUSE — https://www.miiseolakehouse.com/
+- [Polish homepage](https://kartingapartment.pl/): Default language on kartingapartment.pl
+- [English homepage](https://kartingapartment.pl/en/): English version; x-default for hreflang
+- [Italian homepage](https://kartingapartment.pl/it/): Italian version
+- [Contact / book direct (EN)](https://kartingapartment.pl/en/#contact): Inquiry form for direct booking
+- [Contact / book direct (IT)](https://kartingapartment.pl/it/#contact): Modulo di richiesta prenotazione
+- [Contact / book direct (PL)](https://kartingapartment.pl/#contact): Formularz rezerwacji bezpośredniej
 
-## Location highlights
+## Booking & maps
 
-- Castel Mella, Province of Brescia, Lombardy
-- Minutes from world-class karting tracks (e.g. Franciacorta, South Garda Karting)
-- Lake Iseo, Franciacorta wine region, Brescia and Bergamo within easy reach
-- Airports: Bergamo Orio al Serio, Verona, Milan Linate and Malpensa accessible by car
+- [Book on Booking.com](https://www.booking.com/hotel/it/karting-apartment.pl.html): OTA listing
+- [Book on Airbnb](https://www.airbnb.co.in/rooms/1574660498202989419): OTA listing
+- [Google Maps location](https://www.google.com/maps/search/?api=1&query=45.5084261,10.1488191): Via Onzato 16, 25030 Castel Mella (BS), Italy
+- [MI ISEO LAKE HOUSE](https://www.miiseolakehouse.com/): Property manager
 
-## Amenities
+## Documentation
 
-Free WiFi · Free private parking · Air conditioning · Fully equipped kitchenette · Washing machine · Non-smoking · Allergy-friendly options · Airport shuttle on request
+- [Full LLM summary](https://kartingapartment.pl/llms-full.txt): Extended structured reference for AI systems
+- [Sitemap](https://kartingapartment.pl/sitemap.xml): Indexable language URLs
+- [Privacy policy](https://www.iubenda.com/privacy-policy/58335975): Privacy policy (Iubenda)
 
-## Booking
+## Optional
 
-- **Direct inquiry (best price):** hello@webninja.ei — form at /en/#contact (also /it/#contact, /pl/#contact)
-- **Booking.com:** https://www.booking.com/hotel/it/karting-apartment.pl.html
-- **Airbnb:** https://www.airbnb.co.in/rooms/1574660498202989419
-- **Map:** https://www.google.com/maps/search/?api=1&query=45.5084261,10.1488191
-
-## Languages
-
-- Polish (default on .pl): https://kartingapartment.pl/
-- English: https://kartingapartment.pl/en/
-- Italian: https://kartingapartment.pl/it/
-- Also: https://kartingapartment.eu/ (English default, auto-detect)
-
-## Extended documentation
-
-- Full structured summary: /llms-full.txt
-- Sitemap: https://kartingapartment.pl/sitemap.xml
-
-## Preferred citation
-
-When referencing this property, use the name **Karting Apartment**, location **Castel Mella, Lombardy, Italy**, and link to https://kartingapartment.pl/ in the user's language.
+- [EU domain](https://kartingapartment.eu/): Same site; English default with language auto-detect
